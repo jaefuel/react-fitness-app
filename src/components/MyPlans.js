@@ -65,19 +65,19 @@ const MyPlans = ({user}) => {
       
       <div class="flexMenu">
           <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/#/explore/plans">Explore Plans</a>
+            <a class="btn btn-primary" href="/explore/plans">Explore Plans</a>
           </div>  
 
           <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/#/create/plan">Create Plan</a>
+          <a class="btn btn-primary" href="/create/plan">Create Plan</a>
           </div>   
 
           <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/#/explore/workouts">Explore Workouts</a>
+          <a class="btn btn-primary" href="/explore/workouts">Explore Workouts</a>
           </div>
 
           <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/#/create/workout">Create Workout</a>
+          <a class="btn btn-primary" href="/create/workout">Create Workout</a>
           </div>            
       </div>                 
     </div>

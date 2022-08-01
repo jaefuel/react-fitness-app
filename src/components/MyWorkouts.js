@@ -57,7 +57,7 @@ const MyWorkouts = ({user}) => {
           </div>  
 
           <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/#/create/workout">Back</a>
+            <a class="btn btn-primary" href="/create/workout">Back</a>
           </div>                   
 
         </div>

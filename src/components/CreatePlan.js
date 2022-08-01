@@ -69,7 +69,7 @@ const CreatePlan = () => {
           </div>
 
           <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/#/home">Return Home</a>
+            <a class="btn btn-primary" href="/home">Return Home</a>
           </div>  
       
         </div>

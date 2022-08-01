@@ -11,7 +11,7 @@ import MyPlans from './components/MyPlans'
 import ExplorePlans from './components/ExplorePlans'
 import CreatePlan from './components/CreatePlan'
 
-import { HashRouter as Router, Routes, Route} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { useState, useEffect } from 'react'
 
 

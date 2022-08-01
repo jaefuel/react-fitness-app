@@ -33,7 +33,7 @@ module.exports = {
       }); 
 
       console.log("Plan has been added!");
-      res.redirect("/#/home");
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
@@ -97,7 +97,7 @@ module.exports = {
 
 
       console.log("Plan has been added!");
-      res.redirect("/#/home");
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
@@ -122,7 +122,7 @@ module.exports = {
         console.log("You already liked this workout");
       }
 
-      res.redirect("/#/plans");
+      res.redirect("/plans");
       
     } catch (err) {
       console.log(err);
@@ -135,9 +135,9 @@ module.exports = {
       // Delete post from db
       await Workout.remove({ _id: req.params.id });
       console.log("Deleted Workout");
-      res.redirect("/#/home");
+      res.redirect("/home");
     } catch (err) {
-      res.redirect("/#/home");
+      res.redirect("/home");
     }
   }
 };

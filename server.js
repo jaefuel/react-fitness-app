@@ -27,7 +27,7 @@ connectDB();
 app.set("view engine", "ejs");
 
 //Static Folder
-app.use(express.static("public"));
+app.use(express.static("build"));
 
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
@@ -67,6 +67,10 @@ app.use("/", mainRoutes);
 app.use("/workouts", workoutRoutes);
 app.use("/plans", planRoutes);
 app.use("/comment", commentRoutes);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 //Server Running
 app.listen(process.env.PORT || 2121, () => {

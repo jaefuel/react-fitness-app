@@ -11,9 +11,11 @@ const PlanThumbnail = ({workout}) => {
 
   return ( 
   <div>
-    <li class="workout" style={{listStyle: 'none'}} key={workout.id}>
-      <div>Name: <b>{workout.name}</b></div>
+    <li class="workout" style={{listStyle: 'none', backgroundColor:"#000120bf"}} key={workout.id}>
+
+      <div>Workout <b>{workout.name}</b></div>
       <br></br>
+      
       <div>
         {workout.drills.map(drill => {
           return <li> 
@@ -21,21 +23,22 @@ const PlanThumbnail = ({workout}) => {
             <div>Sets: <b>{drill[2]}</b> {drill[4]}: <b>{drill[3]}</b></div>     
             <br></br>               
             </li>
-          })}                                   
-          </div> 
-          <br></br>
-                  
-          <div class="flexLikes">
-            <div>Likes: <b>{workout.likes.length - 1}</b> </div>   
-            <form
-            class="col-1"
-            action={likeAction}
-            method="POST">
-            <button style={{border:"none", background:"none", color:"white", fontSize:"22px"}} type="submit">{element}</button>
-            </form>
-          </div>
-        </li>
+        })}
+      </div>
 
+      <br></br> 
+
+      <div class="flexLikes">
+        <div>Likes: <b>{workout.likes.length - 1}</b> </div>   
+        <form
+        class="col-1"
+        action={likeAction}
+        method="POST">
+        <button style={{border:"none", background:"none", color:"white", fontSize:"22px"}} type="submit">{element}</button>
+        </form>
+      </div>
+
+    </li>
   </div>
   )
 }

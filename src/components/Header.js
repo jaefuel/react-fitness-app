@@ -37,7 +37,10 @@ const Header = () => {
               <p style={{border:"none", background:"none", color:"white", fontSize: "26px"}}>{element}</p>
               <p><strong>User Name</strong>: {user.userName}</p>
               <p><strong>Email</strong>: {user.email}</p>
-              <a href='http://localhost:2121/logout' class="col-3 btn btn-primary">Logout</a>
+
+              <form action="http://localhost:2121/logout" method="POST">
+                <button type="submit" class="col-3 btn btn-primary">Logout</button>
+              </form>
       </div>   
     </header>
   )

@@ -4,23 +4,21 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import WorkoutThumbnail from './WorkoutThumbnail'
 
 
-const PlanThumbnail = ({plan}) => {
+const PlanThumbnail = ({plan,index}) => {
 
   const element = <FontAwesomeIcon icon={faThumbsUp} />
 
   return ( 
   <div>
        <li class="workout" style={{listStyle: 'none'}} key={plan.id}>
-        <div>Name: <b>{plan.name}</b></div>
+        <div>Plan <b>{plan.name}</b></div>
+        <div>Description <b>{plan.description}</b></div>
         <br></br>
         <div>
-          {plan.workouts.map(workout => {
+          {plan.workouts.map((workout,index) => {
             return <li>
-              {workout.name}
-
-              <WorkoutThumbnail workout={workout}/>
-
-            
+              <div>Day <b>{index + 1}</b></div>
+              <WorkoutThumbnail workout={workout}/>           
             </li>
             })}                                   
             </div> 

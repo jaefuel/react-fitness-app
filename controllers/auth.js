@@ -2,26 +2,6 @@ const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
 
-exports.getLoginPage = (req, res) => {
-  if (req.user) {
-    return res.redirect("http://localhost:2121/home");
-  }
-  return res.redirect("http://localhost:3000/login");
-};
-
-exports.getSignupPage = (req, res) => {
-  if (req.user) {
-    return res.redirect("http://localhost:2121/home");
-  }
-  return res.redirect("http://localhost:3000/signup");
-};
-
-exports.getHomePage = (req, res) => {
-  if (!req.user) {
-    return res.redirect("http://localhost:3000/");
-  }
-  return res.redirect("http://localhost:3000/home");
-};
 
 exports.postLogin = (req, res, next) => {
   const validationErrors = [];
@@ -53,24 +33,30 @@ exports.postLogin = (req, res, next) => {
       }
       console.log("You are logged in. ")
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "http://localhost:2121/home");
+      res.redirect(req.session.returnTo || "http://localhost:3000/home");
     });
   })(req, res, next);
 };
 
-exports.logout = (req, res) => {
+exports.postLogout = (req, res) => {
   
   req.logout(() => {
     console.log('User has logged out.')
-  })
-  req.session.destroy((err) => {
-    if (err)
-      console.log("Error : Failed to destroy the session during logout.", err);
-    req.user = null;
-    console.log("Session ended")
-    res.redirect("http://localhost:3000/");
-  });
-};
+    console.log(req.session)
+
+    req.session.destroy((err) => {
+      if (err)
+      {
+        console.log("Error : Failed to destroy the session during logout.", err);
+      }
+        
+      req.user = null;
+      console.log("Session ended")
+      res.redirect("http://localhost:3000/");
+    })
+
+  }) 
+}
 
 exports.getUser = (req, res) => {
   res.send(req.user);
@@ -122,7 +108,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          return res.redirect("http://localhost:2121/home");
+          return res.redirect("http://localhost:3000/home");
         });
       });
     }

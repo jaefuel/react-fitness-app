@@ -20,6 +20,7 @@ const WorkoutForm = ({index}) => {
     getWorkouts().then(arr => {
       let arrBody = arr.workouts
       setWorkouts(arrBody)
+      console.log(workouts)
     })},[]); 
 
   
@@ -27,12 +28,11 @@ const WorkoutForm = ({index}) => {
   return (<>          
             <div class="mb-3">
 
-              <label for="workouts" class="form-label">Day {index + 1}: </label>
+              <label for="workouts" class="form-label">Day {index + 1}: </label>            
 
               <select name="workouts" id="workouts">
-                {workouts.map(workout => {
-                  return <option value={workout.name}>{workout.name}</option>
-                })}
+               
+               {workouts.length == 0 ? <option value="">No workouts found</option> : workouts.map(workout => {return <option value={workout.name}>{workout.name}</option>})}
               </select>
 
             </div>

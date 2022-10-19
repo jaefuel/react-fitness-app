@@ -1,0 +1,16 @@
+body
+{
+    background-color: #0c0c0c
+}
+
+h1,h2,h3,h4,h5,p,span,div, a{
+    color: rgb(209, 209, 209);
+    text-decoration: none;
+}
+
+.drillThumb
+{
+    padding: 20px;
+    border: 2px solid #F7A900;
+    overflow: hidden;
+}

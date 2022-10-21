@@ -22,7 +22,7 @@ const Home = () => {
             </div>          
 
             <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/create/plan">Create a Plan</a>
+            <a class="btn btn-primary" href="/create/plan">Create Plan</a>
             </div>
 
             <div class="row justify-content-center mt-5">            
@@ -34,7 +34,7 @@ const Home = () => {
             </div> 
 
             <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/create/workout">Create a Workout</a>
+            <a class="btn btn-primary" href="/create/workout">Create Workout</a>
             </div>                               
             
           </div>  

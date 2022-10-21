@@ -38,7 +38,7 @@ const MyWorkouts = () => {
         <div class="col-6">
 
           <div class="row justify-content-center mt-5">
-            <ul>
+            <ul class = "workouts">
 
             {workouts.map(workout => {
               return <WorkoutThumbnail workout={workout}/>                     

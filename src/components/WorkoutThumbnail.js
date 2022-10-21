@@ -11,7 +11,7 @@ const PlanThumbnail = ({workout}) => {
 
   return ( 
   <div>
-    <li class="workout" style={{listStyle: 'none', backgroundColor:"#000120bf"}} key={workout.id}>
+    <li class="workout" style={{listStyle: 'none', backgroundColor:"#ffffff0D"}} key={workout.id}>
 
       <div>Workout <b>{workout.name}</b></div>
       <br></br>

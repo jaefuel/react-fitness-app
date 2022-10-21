@@ -1,4 +1,5 @@
 import React from 'react'
+import Header from './Header'
 
 const Login = () => {
   {/*let messages;
@@ -14,7 +15,9 @@ const Login = () => {
 
   return (
     <main class="container">
-      <div class="row justify-content-center">
+      <Header />
+
+      <div class="row justify-content-center flexIndex">
         <section class="col-6 mt-5">        
 
           <form action="http://localhost:2121/login" method="POST">

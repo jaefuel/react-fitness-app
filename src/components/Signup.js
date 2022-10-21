@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from './Header'
 
 const Signup = ({locals}) => {
   return (
     <main class="container">
-    <div class="row justify-content-center">
+    <Header />
+
+    <div class="row justify-content-center flexIndex">
         <section class="col-6 mt-5">
           {/*if (locals.messages.errors) {
                 messages.errors.forEach( el => {

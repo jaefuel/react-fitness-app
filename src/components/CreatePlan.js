@@ -1,19 +1,19 @@
 import React from 'react'
 import WorkoutForm from './WorkoutForm'
-import { useState } from 'react'
 import Header from './Header'
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 
 const CreatePlan = () => {
 
   const [workouts, setWorkouts] = useState([])
- 
-
+  const element = <FontAwesomeIcon icon={faPlusCircle} />
 
   function addWorkout() {
     const randomID = Math.floor(Math.random() * 99999);
     setWorkouts((current) => [...current, randomID]);
   }
-
 
   return (
     <div class="container">
@@ -36,7 +36,7 @@ const CreatePlan = () => {
                   <input type="text" class="form-control" id="plandescription" name="plandescription"></input>
               </div> 
               
-              <button type="button" onClick={addWorkout}>Add a Workout</button>
+              <a style={{border:"none", background:"none", color:"white", fontSize: "20px"}} type="button" onClick={addWorkout}>{element}</a>
 
               <h2 class="add fa-solid fa-square-plus"></h2>
 

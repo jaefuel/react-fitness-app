@@ -1,7 +1,6 @@
 const Plan = require("../models/Plan");
 const Workout = require("../models/Workout");
 const Comment = require("../models/Comment");
-const { getWorkout } = require("./workouts");
 
 module.exports = {
   getPlans: async (req, res) => {

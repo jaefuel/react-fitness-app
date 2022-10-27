@@ -49,7 +49,7 @@ const MyWorkouts = () => {
 
           <div class="row justify-content-center mt-5">
             <a class="btn btn-primary" href="/home">Return Home</a>
-          </div>              
+          </div>                   
 
         </div>
       </div>

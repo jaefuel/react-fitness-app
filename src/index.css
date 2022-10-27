@@ -10,22 +10,6 @@ a{
   color: white;
 }
 
-.sun {
-  display:flex;
-  justify-content: center; /* center items horizontally, in this case */
-  align-items: center;     /* center items vertically, in this case */
-  border-radius:50%;
-  height:200px;
-  width:200px;
-  right: 100px;
-  background:orange;
-  box-shadow: 0 0 10px orange,
-                0 0 60px orange,
-                0 0 200px yellow,
-                inset 0 0 80px yellow;
-  z-index:12;
-  z-index:-99;
-}
 
 * {
   box-sizing: border-box;
@@ -45,12 +29,12 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 250vh 100vh;
-
-  
 }
 
 .container {
-  max-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0px auto;
   overflow: auto;
   min-height: 450px;
@@ -60,11 +44,12 @@ body {
   background-color: #0c0c0ca4;
 }
 
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
 }
 
 .btn {
@@ -163,52 +148,6 @@ h1,h3,p,label {
   color: whitesmoke;
 }
 
-@keyframes particleAnimation
-{
-    from {
-        top: -100px;
-    }
-  
-  50% {
-    transform: translateY(500px);
-  }
-    to {
-        left: calc( 100% + 100px );
-        top: calc( 100% + 100px );
-    }
-}
-
-@keyframes tothetop
-{
-  
-  from {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
-  background: #0c0c2b;
-  }
-  
-  to {
-    display: block;
-    align-items: none;
-    justify-content: none;
-    min-height: 0vh;
-    align-items: center;
-  }
-}
-
-@keyframes moonanim
-{
-  from {
-    top: -50vh;
-  }
-  
-  to {
-    top: 0;
-  }
-}
 
 .logo {
   color: white;
@@ -243,32 +182,6 @@ h1{
   padding: 1vh;
 }
 
-@media screen and (max-width: 992px) {
-
-}
-
-#logo{
-  max-height: 100px;
-}
-
-.workout
-{
-  width: 400px;
-  color:white;
-  border: 2px solid #4682B4;
-  margin: 20px 10px;
-  text-align: center;
-  padding: 40px 80px 0px 80px;
-  background-color: #050505a4;
-}
-
-.workouts
-{
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
 input[type=text] 
 {
   width: 100%;
@@ -277,26 +190,131 @@ input[type=text]
   box-sizing: border-box;
 }
 
-.flexHeader
-{
-  display: flex;
-  flex-direction: column;
+#logo{
+  max-height: 100px;
 }
 
-.flexHome
+.flexIndex
+{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.flexHeader
+{
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  border: none;
+}
+
+.flexFooter
+{
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  border: none;
+
+}
+
+.home
+{
+  padding: 0px;
+  margin: 0px;
+}
+
+.flexMenu
 {
   display: flex;
   flex-direction: row;
   justify-content:center;
   flex-wrap: wrap;
-  margin-top: 40px;
+  width: 600px;
+  margin: 40px auto 0 auto;
+  padding: 0px;
+
   
 }
 
-.flexHome a
+.flexMenu a
 {
   width: 200px;
   margin: 10px;
+}
+
+.myplans
+{
+  position: relative;
+  min-height: 250px;
+  max-height: 800px;
+  margin: 0px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-y: contain;
+  scroll-snap-type:y mandatory;
+}
+
+.myplans::-webkit-scrollbar
+{
+  display: none;
+}
+
+.plan
+{
+  min-height: 800px;
+  width: 800px;
+  color:white;
+  border: 2px solid #4682B4;
+  margin: 0px auto;
+  text-align: center;
+  padding: 30px 80px 0px 80px;
+  background-color: #050505a4;
+  scroll-snap-align: start;
+}
+
+.planT
+{
+  padding: 20px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.workouts
+{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+
+.workout::-webkit-scrollbar
+{
+  display: none;
+}
+
+
+.workout
+{
+  width: 300px;
+  color:white;
+  border: 2px solid #4682B4;
+  margin: 0px auto;
+  text-align: center;
+  padding: 40px 80px 0px 80px;
+  background-color: #050505a4;
+  list-style: none;
+  overflow-y:scroll;
+  height: 360px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .f2, .f3
@@ -332,9 +350,4 @@ h2
   
 }
 
-.flexIndex
-{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+

@@ -16,13 +16,13 @@ const DrillForm = ({index}) => {
     option = 
     <div>
     <div class="mb-3">
-      <label for="sets" class="form-label">Sets</label>
+      <label for="sets" class="form-label">Sets </label>
       <input class="form-control" id="sets" name="sets"></input>
     </div>
 
     <div class="toggle">
       <div class="mb-3">
-        <label for={[index,'reps']} class="form-label">Reps</label>
+        <label for={[index,'reps']} class="form-label">Reps </label>
         <input class="form-control" id={index} name={[index,'reps']}></input>
       </div>
       <a style={{border:"none", background:"none",  fontSize: "18px"}} type="button" onClick={toggle}>{toggleOff}</a> 
@@ -35,14 +35,14 @@ const DrillForm = ({index}) => {
     option = 
     <div>
       <div class="mb-3">
-        <label for="sets" class="form-label">Sets</label>
+        <label for="sets" class="form-label">Sets </label>
         <input class="form-control" id="sets" name="sets"></input>
       </div>
 
       <div class="toggle">
         
         <div class="mb-3">
-          <label for={[index, 'secs']} class="form-label">Secs</label>
+          <label for={[index, 'secs']} class="form-label">Secs </label>
           <input class="form-control" id={index} name={[index, 'secs']}></input>
         </div>
         <a style={{border:"none", background:"none",  fontSize: "18px"}} type="button" onClick={toggle}>{toggleOn}</a> 

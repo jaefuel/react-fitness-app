@@ -1,27 +1,21 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import WorkoutThumbnail from './WorkoutThumbnail'
 
-
-const PlanThumbnail = ({plan,index}) => {
-
-  const element = <FontAwesomeIcon icon={faThumbsUp} />
-
+const PlanThumbnail = ({plan,handler}) => {
   return ( 
-  <div>
-       <li class="workout" style={{listStyle: 'none'}} key={plan.id}>
+  <div class="plan">
+       <li style={{listStyle: 'none'}} key={plan.id}>
         <div>Plan <b>{plan.name}</b></div>
         <div>Description <b>{plan.description}</b></div>
         <br></br>
-        <div>
+        <ul class = "planT">
           {plan.workouts.map((workout,index) => {
-            return <li>
+            return <li style={{listStyle: 'none'}}>
               <div>Day <b>{index + 1}</b></div>
               <WorkoutThumbnail workout={workout}/>           
             </li>
             })}                                   
-            </div> 
+        </ul> 
             <br></br>           
         </li> 
   </div>

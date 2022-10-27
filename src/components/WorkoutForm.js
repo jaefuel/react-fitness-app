@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 const WorkoutForm = ({index}) => {
+
   const [workouts, setWorkouts] = useState([])
 
   async function getWorkouts(){      
@@ -23,12 +24,10 @@ const WorkoutForm = ({index}) => {
       console.log(workouts)
     })},[]); 
 
-  
-
   return (<>          
             <div class="mb-3">
 
-              <label for="workouts" class="form-label">Day {index + 1}: </label>            
+              <label for="workouts" class="form-label">Day {index + 1} </label>            
 
               <select name="workouts" id="workouts">
                

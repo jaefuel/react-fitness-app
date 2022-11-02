@@ -263,7 +263,6 @@ input[type=text]
   -ms-overflow-style: none;
   scrollbar-width: none;
   overscroll-behavior-y: contain;
-  scroll-snap-type:y mandatory;
 }
 
 .myplans::-webkit-scrollbar
@@ -281,7 +280,6 @@ input[type=text]
   text-align: center;
   padding: 30px 80px 0px 80px;
   background-color: #050505a4;
-  scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -364,6 +362,60 @@ h2
   flex-wrap: wrap;
   margin: 20px;
   
+}
+
+
+
+
+
+
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 10px 12px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
+
+.react-tabs__tab--selected {
+  background: #0c0c0c;
+  border-color: #aaa;
+  color: rgb(255, 255, 255);
+  border-radius: 5px 5px 0 0;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  outline: none;
+}
+
+
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
 }
 
 

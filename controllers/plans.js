@@ -52,20 +52,37 @@ module.exports = {
   
       let arr = []
 
+      console.log(typeof req.body.workouts)
+      if (typeof req.body.workouts == "object")
+      {     
       await req.body.workouts.forEach(async (e) => {
-          arr.push(await findWorkout(e))
+        arr.push(await findWorkout(e))
 
-          if (arr.length == req.body.workouts.length)
-          {
-            Plan.create({
-              name: req.body.name,
-              description: req.body.plandescription,
-              likes: 0,
-              user: req.user.id,
-              workouts: arr
-            }); 
-          }
-        })
+        if (arr.length == req.body.workouts.length)
+        {
+          Plan.create({
+            name: req.body.name,
+            description: req.body.plandescription,
+            likes: 0,
+            user: req.user.id,
+            workouts: arr
+          }); 
+        }
+      })
+      }
+      else
+      {
+        arr.push(await findWorkout(req.body.workouts))
+
+        Plan.create({
+          name: req.body.name,
+          description: req.body.plandescription,
+          likes: 0,
+          user: req.user.id,
+          workouts: arr
+        }); 
+      }
+
 
       console.log("Plan has been added!");
       res.redirect("http://localhost:3000/home");

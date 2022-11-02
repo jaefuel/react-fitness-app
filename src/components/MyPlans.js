@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-
 import PlanThumbnail from './PlanThumbnail'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 
 const MyPlans = ({user}) => {
 
@@ -17,12 +18,20 @@ const MyPlans = ({user}) => {
   else
   {
     body=
+  
+    
     <div class="row mt-5">
+      <TabList>
+        {plans.map((plan) => {           
+            return <Tab>{plan.name}</Tab>
+        })}      
+      </TabList>
+
       <div class="col-6">
         <div class="row justify-content-center mt-5 myplans">
           <ul>
             {plans.map((plan) => {           
-            return <PlanThumbnail plan={plan} user={user}/>
+            return <TabPanel><PlanThumbnail plan={plan} user={user}/></TabPanel>
             })}             
           </ul>
         </div>  
@@ -50,8 +59,10 @@ const MyPlans = ({user}) => {
 
   return (
     <div class="container"> 
-        
-      {body} 
+      
+      <Tabs>
+        {body} 
+      </Tabs> 
 
       <div class="flexMenu">
           <div class="row justify-content-center mt-5">

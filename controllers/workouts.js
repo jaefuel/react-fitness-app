@@ -4,18 +4,18 @@ const Comment = require("../models/Comment");
 module.exports = {
   getWorkouts: async (req, res) => {
     try {
-      console.log(req.user)
-      const workouts = await Workout.find({});
+      const workouts = await Workout.find({user: req.params.id});
       res.send({workouts: workouts});
+
     } catch (err) {
       console.log(err);
     }
   },
-  getWorkout: async (req, res) => {
+  exploreWorkouts: async (req, res) => {
     try {
-      const workout = await Workout.findById(req.params.id);
-      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.send({ workout: workout, user: req.user, comments: comments});
+      const workouts = await Workout.find({});
+      res.send({workouts: workouts});
+
     } catch (err) {
       console.log(err);
     }

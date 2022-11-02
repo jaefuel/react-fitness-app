@@ -3,12 +3,12 @@ import Header from './Header'
 import Footer from './Footer'
 import Plans from './MyPlans'
 
-const Home = () => {
+const Home = ({user}) => {
   return (
     <div class="container home">
       <Header />
-      <Plans />
-      <Footer />    
+      <Plans user={user}/>
+      <Footer user={user}/>    
     </div>
   )
 }

@@ -5,7 +5,6 @@ const plansController = require("../controllers/plans");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
-router.get("/:id", ensureAuth, plansController.getPlan);
 
 router.post("/publish", plansController.publishPlan);
 

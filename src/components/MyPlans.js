@@ -1,16 +1,27 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import PlanThumbnail from './PlanThumbnail'
 
-const MyPlans = () => {
+const MyPlans = ({user}) => {
 
   const [plans, setPlans] = useState([])
 
+  let body;
+
+  if (Object.keys(user).length == 0)
+  {
+    body = ""
+  }
+  else
+  {
+    body =  plans.map((plan) => {           
+      return <PlanThumbnail plan={plan}/>
+    })
+  }
+
   async function getPlans(){      
     try{
-      const response = await fetch('http://localhost:2121/plans')
+      const response = await fetch('http://localhost:2121/plans/'+user._id)
       const data = await response.json() 
       return data
     }
@@ -24,7 +35,7 @@ const MyPlans = () => {
     getPlans().then(arr => {
       let arrBody = arr.plans
       setPlans(arrBody)
-    })},[]); 
+    })},[user]); 
 
   return (
     
@@ -35,9 +46,7 @@ const MyPlans = () => {
           <div class="row justify-content-center mt-5 myplans">
             <ul>
 
-            {plans.map((plan) => {           
-                return <PlanThumbnail plan={plan}/>
-              })}             
+            {body}             
                                   
             </ul>
           </div>  
@@ -48,7 +57,7 @@ const MyPlans = () => {
 
       <div class="flexMenu">
           <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/plans">Explore Plans</a>
+            <a class="btn btn-primary" href="/explore/plans">Explore Plans</a>
           </div>  
 
           <div class="row justify-content-center mt-5">            
@@ -56,7 +65,7 @@ const MyPlans = () => {
           </div>   
 
           <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/workouts">Explore Workouts</a>
+          <a class="btn btn-primary" href="/explore/workouts">Explore Workouts</a>
           </div>
 
           <div class="row justify-content-center mt-5">            

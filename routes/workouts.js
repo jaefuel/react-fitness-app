@@ -5,7 +5,6 @@ const workoutsController = require("../controllers/workouts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
-router.get("/:id", ensureAuth, workoutsController.getWorkout);
 
 router.post("/publish", workoutsController.publishWorkout);
 

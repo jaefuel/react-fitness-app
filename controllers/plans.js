@@ -5,18 +5,16 @@ const Comment = require("../models/Comment");
 module.exports = {
   getPlans: async (req, res) => {
     try {
-      console.log(req.user)
-      const plans = await Plan.find({});
+      const plans = await Plan.find({user: req.params.id});
       res.send({plans: plans});
     } catch (err) {
       console.log(err);
     }
   },
-  getPlan: async (req, res) => {
+  explorePlans: async (req, res) => {
     try {
-      const workout = await Workout.find({});
-      const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.send({ workout: workout, user: req.user, comments: comments});
+      const plans = await Plan.find({});
+      res.send({plans: plans});
     } catch (err) {
       console.log(err);
     }

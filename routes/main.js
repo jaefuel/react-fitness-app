@@ -11,8 +11,10 @@ router.post("/login", authController.postLogin);
 router.post("/signup", authController.postSignup);
 router.post("/logout", authController.postLogout);
 
-router.get("/workouts", workoutsController.getWorkouts);
-router.get("/plans", plansController.getPlans);
+router.get("/workouts/:id", workoutsController.getWorkouts);
+router.get("/workouts/", workoutsController.exploreWorkouts);
+router.get("/plans/:id", plansController.getPlans);
+router.get("/plans/", plansController.explorePlans);
 
 router.get("/user", authController.getUser);
 

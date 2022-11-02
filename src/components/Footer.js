@@ -1,12 +1,9 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDumbbell } from '@fortawesome/free-solid-svg-icons'
 
 
-
-const Footer = () => {
-  const [user, setUser] = useState({})
+const Footer = ({user}) => {
   const element = <FontAwesomeIcon icon={faDumbbell} />
 
   let userInfo;
@@ -27,23 +24,6 @@ const Footer = () => {
     </form>
     </div>  
   }
-
-  async function getUser(){      
-    try{
-      const response = await fetch('http://localhost:2121/user', {credentials: 'include'})
-      const data = await response.json()
-      return data
-    }
-    catch(err)
-    {
-      console.log(err)
-    }   
-  }
-  
-  useEffect(() => {
-    getUser().then(data => {
-      setUser({userName:data.userName, email:data.email}) 
-    })},[]); 
 
   return (
     <header class="container flexFooter">

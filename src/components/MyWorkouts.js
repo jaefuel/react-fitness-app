@@ -1,19 +1,29 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Header from './Header'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import WorkoutThumbnail from './WorkoutThumbnail'
 
-
-const MyWorkouts = () => {
+const MyWorkouts = ({user}) => {
 
   const [workouts, setWorkouts] = useState([])
-  const element = <FontAwesomeIcon icon={faThumbsUp} />
+
+  let body;
+
+  if (Object.keys(user).length == 0)
+  {
+    body = ""
+  }
+  else
+  {
+    body =  workouts.map(workout => {
+      return <WorkoutThumbnail workout={workout}/>                     
+    })
+  }
 
   async function getWorkouts(){      
     try{
-      const response = await fetch('http://localhost:2121/workouts')
+      let action = "http://localhost:2121/workouts/"+user._id
+      const response = await fetch(action)
       const data = await response.json() 
       return data
     }
@@ -27,7 +37,8 @@ const MyWorkouts = () => {
     getWorkouts().then(arr => {
       let arrBody = arr.workouts
       setWorkouts(arrBody)
-    })},[]); 
+  }) 
+  }, [user]); 
 
   return (
     
@@ -40,9 +51,7 @@ const MyWorkouts = () => {
           <div class="row justify-content-center mt-5">
             <ul class = "workouts">
 
-            {workouts.map(workout => {
-              return <WorkoutThumbnail workout={workout}/>                     
-              })}
+           {body}
                                                 
             </ul>
           </div>  

@@ -247,6 +247,12 @@ input[type=text]
   margin: 10px;
 }
 
+.flexPlan
+{
+  display: flex;
+  justify-content: space-between;
+}
+
 .myplans
 {
   position: relative;
@@ -276,6 +282,9 @@ input[type=text]
   padding: 30px 80px 0px 80px;
   background-color: #050505a4;
   scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .planT
@@ -287,10 +296,17 @@ input[type=text]
   align-items: center;
 }
 
+.save
+{
+  align-self: flex-end;
+  margin-bottom: 20px;
+  
+}
+
 .workouts
 {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 
 }

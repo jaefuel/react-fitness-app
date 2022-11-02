@@ -10,8 +10,8 @@ const PlanSchema = new mongoose.Schema({
     required: true,
   },
   likes: {
-    type: Number,
-    required: true,
+    type: Array,
+    default: []
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

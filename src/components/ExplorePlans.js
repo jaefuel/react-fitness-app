@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import Header from './Header'
 import PlanThumbnail from './PlanThumbnail'
 
 const ExplorePlans = ({user}) => {
@@ -15,7 +16,7 @@ const ExplorePlans = ({user}) => {
   else
   {
     body =  plans.map((plan) => {           
-      return <PlanThumbnail plan={plan}/>
+      return <PlanThumbnail plan={plan} user={user}/>
     })
   }
 
@@ -38,22 +39,25 @@ const ExplorePlans = ({user}) => {
     })},[]); 
 
   return (
-    
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col-6">
+    <>
+      <Header />
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-6">
+            <div class="row justify-content-center mt-5 myplans">
+              <ul>
+                {body}                                              
+              </ul>
+            </div>           
+          </div>
+        </div> 
 
-          <div class="row justify-content-center mt-5 myplans">
-            <ul>
+        <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary" href="/home">Return Home</a>
+        </div>  
+      </div>
+    </>
 
-            {body}             
-                                  
-            </ul>
-          </div>  
-          
-        </div>
-      </div>                
-    </div>
   )
 }
 

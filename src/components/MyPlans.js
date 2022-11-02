@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+
 import PlanThumbnail from './PlanThumbnail'
 
 const MyPlans = ({user}) => {
@@ -8,15 +9,25 @@ const MyPlans = ({user}) => {
 
   let body;
 
-  if (Object.keys(user).length == 0)
+  if (plans.length == 0)
   {
-    body = ""
+    body=
+    <div style={{height:"0px",margin:"0px",padding:"0px"}}></div>
   }
   else
   {
-    body =  plans.map((plan) => {           
-      return <PlanThumbnail plan={plan}/>
-    })
+    body=
+    <div class="row mt-5">
+      <div class="col-6">
+        <div class="row justify-content-center mt-5 myplans">
+          <ul>
+            {plans.map((plan) => {           
+            return <PlanThumbnail plan={plan} user={user}/>
+            })}             
+          </ul>
+        </div>  
+      </div>
+    </div>
   }
 
   async function getPlans(){      
@@ -38,22 +49,9 @@ const MyPlans = ({user}) => {
     })},[user]); 
 
   return (
-    
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col-6">
-
-          <div class="row justify-content-center mt-5 myplans">
-            <ul>
-
-            {body}             
-                                  
-            </ul>
-          </div>  
- 
-          
-        </div>
-      </div>
+    <div class="container"> 
+        
+      {body} 
 
       <div class="flexMenu">
           <div class="row justify-content-center mt-5">

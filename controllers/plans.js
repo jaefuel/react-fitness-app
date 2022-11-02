@@ -19,6 +19,25 @@ module.exports = {
       console.log(err);
     }
   },
+  addPlan: async (req, res) => {
+    try {        
+
+      const plan = await Plan.findById(req.params.id)
+
+      Plan.create({
+        name: plan.name,
+        description: plan.description,
+        likes: 0,
+        user: req.user.id,
+        workouts: plan.workouts
+      }); 
+
+      console.log("Plan has been added!");
+      res.redirect("http://localhost:3000/home");
+    } catch (err) {
+      console.log(err);
+    }
+  },
   publishPlan: async (req, res) => {
 
     async function findWorkout(workoutname)
@@ -56,11 +75,11 @@ module.exports = {
   },
   likePlan: async (req, res) => {
     try {
-      const workout = await Workout.findById(req.params.id)
+      const plan = await Plan.findById(req.params.id)
 
-      if (!workout.likes.includes(req.user.id))
+      if (!plan.likes.includes(req.user.id))
       {
-        await Workout.findOneAndUpdate(
+        await Plan.findOneAndUpdate(
           { _id: req.params.id },
           {
             $push: { likes: req.user.id },
@@ -74,7 +93,7 @@ module.exports = {
         console.log("You already liked this workout");
       }
 
-      res.redirect("http://localhost:3000/workouts");
+      res.redirect("http://localhost:3000/plans");
       
     } catch (err) {
       console.log(err);

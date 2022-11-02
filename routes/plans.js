@@ -8,6 +8,8 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.post("/publish", plansController.publishPlan);
 
+router.post("/publish/:id", plansController.addPlan);
+
 router.put("/likePlan/:id", plansController.likePlan);
 
 router.delete("/deletePlan/:id", plansController.deletePlan);

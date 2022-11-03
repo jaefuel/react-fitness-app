@@ -1,10 +1,18 @@
 import React from 'react'
+import Select from 'react-select';
 import { useState, useEffect } from 'react'
 
 const WorkoutForm = ({index}) => {
 
   const [workouts, setWorkouts] = useState([])
+  const [selectedOption, setSelectedOption] = useState(null);
 
+  let options;
+
+  console.log(selectedOption)
+
+  {workouts.length == 0 ? options = [{value:"", label:"No workouts found"}]: options = workouts.map(workout => {return {value:`${workout.name}`, label:`${workout.name}`}})}
+  
   async function getWorkouts(){      
     try{
       const response = await fetch('http://localhost:2121/workouts')
@@ -17,23 +25,27 @@ const WorkoutForm = ({index}) => {
     }   
   }
 
+
   useEffect(() => {
     getWorkouts().then(arr => {
       let arrBody = arr.workouts
       setWorkouts(arrBody)
-      console.log(workouts)
     })},[]); 
 
   return (<>          
             <div class="mb-3">
 
-              <label for="workouts" class="form-label">Day {index + 1} </label>            
+              <p>Day {index + 1} </p>                      
 
-              <select name="workouts" id="workouts">
-               
-               {workouts.length == 0 ? <option value="">No workouts found</option> : workouts.map(workout => {return <option value={workout.name}>{workout.name}</option>})}
-              </select>
-
+              <Select  
+                isSearchable={false}
+                isMulti={false}
+                name="workouts"  
+                value={selectedOption}        
+                onChange={setSelectedOption}
+                options={options}/>
+             
+              
             </div>
             <br></br>
           </>    

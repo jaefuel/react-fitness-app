@@ -51,15 +51,17 @@ module.exports = {
     try {        
   
       let arr = []
+      let diff = 0;
 
-      console.log(typeof req.body.workouts)
       if (typeof req.body.workouts == "object")
       {     
       await req.body.workouts.forEach(async (e) => {
-        arr.push(await findWorkout(e))
-
-        if (arr.length == req.body.workouts.length)
+        if (e != "")
         {
+          arr.push(await findWorkout(e))
+
+          if (arr.length == req.body.workouts.length-diff)
+          {
           Plan.create({
             name: req.body.name,
             description: req.body.plandescription,
@@ -67,11 +69,19 @@ module.exports = {
             user: req.user.id,
             workouts: arr
           }); 
+          }
         }
+        else
+        {
+          diff++;
+        }
+        
       })
       }
       else
       {
+        if (req.body.workouts != "")
+        {
         arr.push(await findWorkout(req.body.workouts))
 
         Plan.create({
@@ -81,6 +91,8 @@ module.exports = {
           user: req.user.id,
           workouts: arr
         }); 
+        }
+ 
       }
 
 

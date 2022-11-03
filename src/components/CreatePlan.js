@@ -41,8 +41,7 @@ const CreatePlan = () => {
               <h2 class="add fa-solid fa-square-plus"></h2>
 
               {workouts.map((workout, i) => {
-                return <WorkoutForm key={workout} index={i}/>
-                
+                return <WorkoutForm key={workout} index={i}/>              
               })}
 
               <button type="submit" class="btn btn-primary">Submit</button>

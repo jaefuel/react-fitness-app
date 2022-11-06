@@ -74,6 +74,16 @@ module.exports = {
       console.log(err);
     }
   },
+  offDay: async (req, res) => {
+    try {
+      Workout.create({
+        name: "Off Day",
+      });
+
+    } catch (err) {
+      console.log(err);
+    }
+  },
   likeWorkout: async (req, res) => {
     try {
       const workout = await Workout.findById(req.params.id)

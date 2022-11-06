@@ -9,8 +9,6 @@ const WorkoutForm = ({index}) => {
 
   let options;
 
-  console.log(selectedOption)
-
   {workouts.length == 0 ? options = [{value:"", label:"No workouts found"}]: options = workouts.map(workout => {return {value:`${workout.name}`, label:`${workout.name}`}})}
   
   async function getWorkouts(){      
@@ -34,18 +32,18 @@ const WorkoutForm = ({index}) => {
 
   return (<>          
             <div class="mb-3">
-
               <p>Day {index + 1} </p>                      
 
-              <Select  
+              <div class="select">
+                <Select                   
                 isSearchable={false}
                 isMulti={false}
                 name="workouts"  
                 value={selectedOption}        
                 onChange={setSelectedOption}
                 options={options}/>
-             
-              
+              </div>
+                                           
             </div>
             <br></br>
           </>    

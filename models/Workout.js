@@ -13,10 +13,6 @@ const WorkoutSchema = new mongoose.Schema({
     type: Array,
     default: []
   },
-  total: {
-    type: Number,
-    default: 0
-  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

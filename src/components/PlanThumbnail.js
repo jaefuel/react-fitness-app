@@ -31,8 +31,8 @@ const PlanThumbnail = ({plan, user}) => {
   return ( 
   <li style={{listStyle: 'none'}} key={plan._id}>
     <div class="plan">   
-        <div style={{marginTop:"8px",marginBottom:"8px",fontSize:"22px"}}>Plan <b>{plan.name}</b></div>
-        <div>Description <b>{plan.description}</b></div>
+        <div style={{marginTop:"8px",marginBottom:"8px",fontSize:"22px"}}><b>{plan.name}</b></div>
+        <div><b>{plan.description}</b></div>
         <br></br>
         <ul class = "planT">
           {plan.workouts.map((workout,index) => {

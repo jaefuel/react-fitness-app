@@ -1,5 +1,7 @@
 import React from 'react'
 import Header from './Header'
+import AutosizeInput from 'react-input-autosize';
+import { useState } from 'react'
 
 const Login = () => {
   {/*let messages;
@@ -13,6 +15,9 @@ const Login = () => {
     messages = () => {return messages.info.forEach( el => {<div class="alert alert-info">{el.msg}</div>})}
   }*/} 
 
+  const [selectedOption1, setSelectedOption1] = useState(null)
+  const [selectedOption2, setSelectedOption2] = useState(null)
+
   return (
     <main class="container">
       <Header />
@@ -21,24 +26,32 @@ const Login = () => {
         <section class="col-6 mt-5">        
 
           <form action="http://localhost:2121/login" method="POST">
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input
-              type="email"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              name="email"/>
+            <div class="mb-3 df">
+              <AutosizeInput
+	            name="email"
+              type={"email"}
+	            value={selectedOption1}
+              placeholder="Enter Email"
+					    minWidth={175}
+              maxLength={50}
+              style={{ background: '#eee', borderRadius: 2, padding: 2 }}
+              inputStyle={{ border: '1px solid #999', borderRadius: 3, padding: 3, fontSize: 14 }}
+	            onChange={e => setSelectedOption1(e.target.value)}
+              />  
             </div>
 
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              name="password"
-              />
+            <div class="mb-3 df">
+              <AutosizeInput
+	            name="password"
+              type={"password"}
+	            value={selectedOption2}
+              placeholder="Enter Password"
+					    minWidth={175}
+              maxLength={50}
+              style={{ background: '#eee', borderRadius: 2, padding: 2 }}
+              inputStyle={{ border: '1px solid #999', borderRadius: 3, padding: 3, fontSize: 14 }}
+	            onChange={e => setSelectedOption2(e.target.value)}
+              />         
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

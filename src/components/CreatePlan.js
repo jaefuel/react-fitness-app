@@ -4,10 +4,14 @@ import Header from './Header'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import AutosizeInput from 'react-input-autosize';
 
 const CreatePlan = () => {
 
   const [workouts, setWorkouts] = useState([])
+  const [selectedOption1, setSelectedOption1] = useState([])
+  const [selectedOption2, setSelectedOption2] = useState([])
+
   const element = <FontAwesomeIcon icon={faPlusCircle} />
 
   function addWorkout() {
@@ -26,14 +30,30 @@ const CreatePlan = () => {
             <h2>Create a Plan</h2>
 
             <form action="http://localhost:2121/plans/publish" method="POST">
-              <div class="mb-3">
-                  <label for="name" class="form-label">Plan Name</label>
-                  <input class="form-control" id="name" name="name"></input>
+              <div class="mb-3 df">
+              <AutosizeInput
+	            name="name"
+	            value={selectedOption1}
+              placeholder="Plan Name"
+					    minWidth={175}
+              maxLength={50}
+              style={{ background: '#eee', borderRadius: 2, padding: 2 }}
+              inputStyle={{ border: '1px solid #999', borderRadius: 3, padding: 3, fontSize: 14 }}
+	            onChange={e => setSelectedOption1(e.target.value)}
+              />
               </div>  
 
-              <div class="mb-3">
-                  <label for="plandescription" class="form-label">Plan Description</label>
-                  <input type="text" class="form-control" id="plandescription" name="plandescription"></input>
+              <div class="mb-3 df">
+              <AutosizeInput
+	            name="plandescription"
+	            value={selectedOption2}
+              placeholder="Description"
+					    minWidth={175}
+              maxLength={400}
+              style={{ background: '#eee', borderRadius: 2, padding: 2 }}
+              inputStyle={{ border: '1px solid #999', borderRadius: 3, padding: 3, fontSize: 14 }}
+	            onChange={e => setSelectedOption2(e.target.value)}
+              />
               </div> 
               
               <a style={{border:"none", background:"none", color:"white", fontSize: "20px"}} type="button" onClick={addWorkout}>{element}</a>

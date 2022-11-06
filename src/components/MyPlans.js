@@ -17,15 +17,14 @@ const MyPlans = ({user}) => {
   }
   else
   {
-    body=
-  
-    
+    body=      
     <div class="row mt-5">
+
       <TabList>
         {plans.map((plan) => {           
             return <Tab>{plan.name}</Tab>
         })}      
-      </TabList>
+      </TabList>    
 
       <div class="col-6">
         <div class="row justify-content-center mt-5 myplans">
@@ -58,12 +57,12 @@ const MyPlans = ({user}) => {
     })},[user]); 
 
   return (
-    <div class="container"> 
+    <div class="container">      
       
       <Tabs>
         {body} 
       </Tabs> 
-
+      
       <div class="flexMenu">
           <div class="row justify-content-center mt-5">
             <a class="btn btn-primary" href="/explore/plans">Explore Plans</a>

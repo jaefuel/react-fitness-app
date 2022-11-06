@@ -8,6 +8,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.post("/publish", workoutsController.publishWorkout);
 
+
 //router.post("/publish/:id", workoutsController.addWorkout);
 
 router.put("/likeWorkout/:id", workoutsController.likeWorkout);

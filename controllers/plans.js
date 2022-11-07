@@ -33,7 +33,7 @@ module.exports = {
       }); 
 
       console.log("Plan has been added!");
-      res.redirect("http://localhost:3000/home");
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
@@ -97,7 +97,7 @@ module.exports = {
 
 
       console.log("Plan has been added!");
-      res.redirect("http://localhost:3000/home");
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
@@ -122,7 +122,7 @@ module.exports = {
         console.log("You already liked this workout");
       }
 
-      res.redirect("http://localhost:3000/plans");
+      res.redirect("/plans");
       
     } catch (err) {
       console.log(err);

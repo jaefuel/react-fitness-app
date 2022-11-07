@@ -69,7 +69,7 @@ module.exports = {
     
 
       console.log("Workout has been added!");
-      res.redirect("http://localhost:3000/home");
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
@@ -104,7 +104,7 @@ module.exports = {
         console.log("You already liked this workout");
       }
 
-      res.redirect("http://localhost:3000/workouts");
+      res.redirect("/workouts");
       
     } catch (err) {
       console.log(err);

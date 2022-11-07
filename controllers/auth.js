@@ -12,7 +12,7 @@ exports.postLogin = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("http://localhost:3000/login");
+    return res.redirect("/login");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -25,7 +25,7 @@ exports.postLogin = (req, res, next) => {
     if (!user) {
       req.flash("errors", info);
       console.log("User doesn't exist")
-      return res.redirect("http://localhost:3000/login");
+      return res.redirect("/login");
     }
     req.logIn(user, (err) => {
       if (err) {
@@ -33,7 +33,7 @@ exports.postLogin = (req, res, next) => {
       }
       console.log("You are logged in. ")
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "http://localhost:3000/home");
+      res.redirect(req.session.returnTo || "/home");
     });
   })(req, res, next);
 };
@@ -52,7 +52,7 @@ exports.postLogout = (req, res) => {
         
       req.user = null;
       console.log("Session ended")
-      res.redirect("http://localhost:3000/");
+      res.redirect("/");
     })
 
   }) 
@@ -75,7 +75,7 @@ exports.postSignup = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("http://localhost:3000/signup");
+    return res.redirect("/signup");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -98,7 +98,7 @@ exports.postSignup = (req, res, next) => {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
         });
-        return res.redirect("http://localhost:3000/signup");
+        return res.redirect("/signup");
       }
       user.save((err) => {
         if (err) {
@@ -108,7 +108,7 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          return res.redirect("http://localhost:3000/home");
+          return res.redirect("/home");
         });
       });
     }

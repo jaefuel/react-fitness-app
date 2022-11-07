@@ -58,7 +58,7 @@ const Login = () => {
           </form>
 
             <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/">Back</a>
+              <a class="btn btn-primary" href="/#/">Back</a>
             </div>  
         </section>
       </div>

@@ -54,11 +54,11 @@ const CreateWorkout = () => {
           </div>
 
           <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/home">Return Home</a>
+            <a class="btn btn-primary" href="/#/home">Return Home</a>
           </div>  
           
           <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/workouts">My Workouts</a>
+          <a class="btn btn-primary" href="/#/workouts">My Workouts</a>
           </div>    
       
         </div>

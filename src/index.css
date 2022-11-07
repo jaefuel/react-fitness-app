@@ -31,7 +31,7 @@ body {
   background-size: 250vh 100vh;
 }
 
-.container {
+.container { 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -203,7 +203,7 @@ input[type=text]
 
 .flexHeader
 {
-  min-height: 250px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -214,9 +214,11 @@ input[type=text]
 
 .flexFooter
 {
-  min-height: 250px;
+  max-height: 100px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0px;
   border: none;
 
@@ -257,7 +259,7 @@ input[type=text]
 {
   position: relative;
   min-height: 250px;
-  max-height: 800px;
+  max-height: 1040px;
   margin: 0px;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -326,12 +328,13 @@ input[type=text]
   color:white;
   border: 2px solid #4682B4;
   margin: 0px auto;
-  text-align: center;
   padding: 20px 20px 0px 20px;
   background-color: #050505a4;
   list-style: none;
   overflow-y:scroll;
-  max-height: 360px;
+  height: 360px;
+  
+
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

@@ -26,7 +26,7 @@ const Footer = ({user}) => {
   }
 
   return (
-    <header class="container flexFooter">
+    <header class="flexFooter">
       
       {userInfo}      
 

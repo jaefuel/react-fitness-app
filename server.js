@@ -58,7 +58,7 @@ app.use(flash());
 
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: '',
   credentials : true
 }))
 
@@ -69,6 +69,6 @@ app.use("/plans", planRoutes);
 app.use("/comment", commentRoutes);
 
 //Server Running
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 2121, () => {
   console.log("Server is running, you better catch it!");
 });

@@ -2,6 +2,7 @@
   "name": "react-fitness-app",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
@@ -36,7 +37,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "server.js",
+    "start": "nodemon server.js",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

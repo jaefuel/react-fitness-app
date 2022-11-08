@@ -19,7 +19,7 @@ const Footer = ({user}) => {
     <p><strong>User Name</strong>: {user.userName}</p>
     <p><strong>Email</strong>: {user.email}</p>
 
-    <form action="http://localhost:2121/logout" method="POST">
+    <form action="/logout" method="POST">
       <button style={{ marginTop: "26px"}} type="submit" class="col-3 btn btn-primary">Logout</button>
     </form>
     </div>  

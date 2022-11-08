@@ -22,7 +22,7 @@ function App() {
 
   async function getUser(){      
     try{
-      const response = await fetch('http://localhost:2121/user', {credentials: 'include'})
+      const response = await fetch('/user', {credentials: 'include'})
       const data = await response.json()
       return data
     }

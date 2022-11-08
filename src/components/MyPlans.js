@@ -40,7 +40,7 @@ const MyPlans = ({user}) => {
 
   async function getPlans(){      
     try{
-      const response = await fetch('http://localhost:2121/plans/'+user._id)
+      const response = await fetch('/plans/'+user._id)
       const data = await response.json() 
       return data
     }

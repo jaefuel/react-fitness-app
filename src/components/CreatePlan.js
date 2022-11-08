@@ -29,7 +29,7 @@ const CreatePlan = () => {
           <div class="mt-5">        
             <h2>Create a Plan</h2>
 
-            <form action="http://localhost:2121/plans/publish" method="POST">
+            <form action="/plans/publish" method="POST">
               <div class="mb-3 df">
               <AutosizeInput
 	            name="name"

@@ -58,7 +58,7 @@ app.use(flash());
 
 
 app.use(cors({
-  origin: '',
+  origin: '/',
   credentials : true
 }))
 

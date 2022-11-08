@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClone, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 
 const PlanThumbnail = ({plan, user}) => {
-  let saveAction = "http://localhost:2121/plans/publish/"+plan._id
+  let saveAction = "/plans/publish/"+plan._id
   const element = <FontAwesomeIcon icon={faClone} />
 
-  let likeAction = ["http://localhost:2121/plans/likePlan/",plan._id, "?_method=PUT"].join("")
+  let likeAction = ["/plans/likePlan/",plan._id, "?_method=PUT"].join("")
   const element2 = <FontAwesomeIcon icon={faThumbsUp} />
 
   let form;

@@ -27,7 +27,7 @@ const CreateWorkout = () => {
           <div class="mt-5">        
             <h1>Create a Workout</h1>
 
-            <form action="http://localhost:2121/workouts/publish" method="POST">
+            <form action="/workouts/publish" method="POST">
               <div class="mb-3 df">
               <AutosizeInput
 	            name="name"

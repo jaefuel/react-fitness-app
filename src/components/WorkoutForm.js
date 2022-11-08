@@ -13,7 +13,7 @@ const WorkoutForm = ({index}) => {
   
   async function getWorkouts(){      
     try{
-      const response = await fetch('http://localhost:2121/workouts')
+      const response = await fetch('/workouts')
       const data = await response.json() 
       return data
     }

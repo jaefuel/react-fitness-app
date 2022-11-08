@@ -25,7 +25,7 @@ const Login = () => {
       <div class="row justify-content-center flexIndex">
         <section class="col-6 mt-5">        
 
-          <form action="http://localhost:2121/login" method="POST">
+          <form action="/login" method="POST">
             <div class="mb-3 df">
               <AutosizeInput
 	            name="email"

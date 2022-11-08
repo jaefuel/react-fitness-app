@@ -27,7 +27,7 @@ const Signup = ({locals}) => {
                 })   
             }*/}
             
-            <form action="http://localhost:2121/signup" method="POST">
+            <form action="/signup" method="POST">
                 <div class="mb-3 df">
                   <AutosizeInput
 	                name="userName"

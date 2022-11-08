@@ -22,7 +22,7 @@ const ExploreWorkouts = ({user}) => {
 
   async function getWorkouts(){      
     try{
-      let action = "http://localhost:2121/workouts/"
+      let action = "/workouts/"
       const response = await fetch(action)
       const data = await response.json() 
       return data

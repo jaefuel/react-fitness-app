@@ -57,7 +57,7 @@ const MyPlans = ({user}) => {
     })},[user]); 
 
   return (
-    <div class="container">      
+    <div>      
       
       <Tabs>
         {body} 

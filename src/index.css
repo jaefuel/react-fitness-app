@@ -24,11 +24,13 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
   min-height: 100vh;
   background-image: url('imgs/renato-ramos-puma-37WxvlfW3to-unsplash.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 250vh 100vh;
+  background-size: cover;
 }
 
 .container { 
@@ -210,6 +212,7 @@ input[type=text]
   align-items: center;
   margin: 0px;
   border: none;
+  padding: 40px 0px;
 }
 
 .flexFooter
@@ -221,6 +224,7 @@ input[type=text]
   align-items: center;
   margin: 0px;
   border: none;
+  padding: 40px 0px;
 
 }
 
@@ -378,6 +382,11 @@ h2
 
 @media screen and (max-width: 767px)
 {
+  .plan
+  {
+    width: 100%;
+  }
+
   .planT
   {
   padding: 20px 0px;

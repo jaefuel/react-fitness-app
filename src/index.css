@@ -33,11 +33,13 @@ body {
 
 .wrapper
 {
-  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
   overscroll-behavior-y: contain;
+  overscroll-behavior-x: contain;
+
 }
 
 .wrapper::-webkit-scrollbar

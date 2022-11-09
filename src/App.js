@@ -38,22 +38,25 @@ function App() {
     })},[]); 
 
   return (
+    <div class = "wrapper">
     <Router>
-      <>     
-        <Routes>
-          <Route path='/' element={<Index user={user}/>}/>
-          <Route path='/signup' element={<Signup user={user}/>}/>
-          <Route path='/login' element={<Login user={user}/>}/>
-          <Route path='/home' element={<Home user={user}/>}/>
-          <Route path='/create/workout' element={<CreateWorkout user={user}/>}/>     
-          <Route path='/create/plan' element={<CreatePlan user={user}/>}/>  
-          <Route path='/workouts' element={<MyWorkouts user={user}/>}/> 
-          <Route path='/explore/workouts' element={<ExploreWorkouts user={user}/>}/> 
-          <Route path='/plans' element={<MyPlans user={user}/>}/>       
-          <Route path='/explore/plans' element={<ExplorePlans user={user}/>}/>       
-        </Routes> 
-      </> 
-    </Router> 
+    <>     
+      <Routes>
+        <Route path='/' element={<Index user={user}/>}/>
+        <Route path='/signup' element={<Signup user={user}/>}/>
+        <Route path='/login' element={<Login user={user}/>}/>
+        <Route path='/home' element={<Home user={user}/>}/>
+        <Route path='/create/workout' element={<CreateWorkout user={user}/>}/>     
+        <Route path='/create/plan' element={<CreatePlan user={user}/>}/>  
+        <Route path='/workouts' element={<MyWorkouts user={user}/>}/> 
+        <Route path='/explore/workouts' element={<ExploreWorkouts user={user}/>}/> 
+        <Route path='/plans' element={<MyPlans user={user}/>}/>       
+        <Route path='/explore/plans' element={<ExplorePlans user={user}/>}/>       
+      </Routes> 
+    </> 
+  </Router> 
+  </div>
+    
   )
 }
 

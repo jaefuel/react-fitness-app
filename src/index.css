@@ -24,12 +24,16 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: scroll;
   background-image: url('imgs/renato-ramos-puma-37WxvlfW3to-unsplash.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.wrapper
+{
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .container { 
@@ -373,6 +377,7 @@ h2
 
 @media screen and (max-width: 767px)
 {
+
   .plan
   {
     width: 100%;

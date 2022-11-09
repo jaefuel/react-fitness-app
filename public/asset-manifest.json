@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.a083ce74.css",
+    "main.css": "/static/css/main.dacfdc5b.css",
     "main.js": "/static/js/main.883f162f.js",
     "static/js/787.3df4c225.chunk.js": "/static/js/787.3df4c225.chunk.js",
     "static/media/renato-ramos-puma-37WxvlfW3to-unsplash.jpg": "/static/media/renato-ramos-puma-37WxvlfW3to-unsplash.72991fc835e4ac61ae65.jpg",
     "index.html": "/index.html",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "main.a083ce74.css.map": "/static/css/main.a083ce74.css.map",
+    "main.dacfdc5b.css.map": "/static/css/main.dacfdc5b.css.map",
     "main.883f162f.js.map": "/static/js/main.883f162f.js.map",
     "787.3df4c225.chunk.js.map": "/static/js/787.3df4c225.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a083ce74.css",
+    "static/css/main.dacfdc5b.css",
     "static/js/main.883f162f.js"
   ]
 }

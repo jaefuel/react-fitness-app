@@ -28,13 +28,22 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  overscroll-behavior-y: contain;
 }
 
 .wrapper
 {
   overflow-x: hidden;
-  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overscroll-behavior-y: contain;
 }
+
+.wrapper::-webkit-scrollbar
+{
+  display: none;
+}
+
 
 .container { 
   display: flex;

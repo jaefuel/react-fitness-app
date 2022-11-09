@@ -27,7 +27,7 @@ const MyPlans = ({user}) => {
       </TabList>    
 
       <div class="col-6">
-        <div class="row justify-content-center mt-5 myplans">
+        <div class="myplans">
           <ul>
             {plans.map((plan) => {           
             return <TabPanel><PlanThumbnail plan={plan} user={user}/></TabPanel>

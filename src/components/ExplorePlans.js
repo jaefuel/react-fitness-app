@@ -41,7 +41,7 @@ const ExplorePlans = ({user}) => {
   return (
     <>
       <Header />
-      <div class="container">
+      <div class="container home">
         <div class="row mt-5">
           <div class="col-6">
             <div class="row justify-content-center mt-5 myplans">

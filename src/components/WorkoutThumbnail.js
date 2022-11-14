@@ -2,7 +2,6 @@ import React from 'react'
 
 const WorkoutThumbnail = ({workout}) => {
 
-  let style;
   let body;
 
   if (workout.name.toLowerCase() != "off day")

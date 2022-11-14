@@ -20,20 +20,22 @@ const MyWorkouts = ({user}) => {
     })
   }
 
-  async function getWorkouts(){      
-    try{
-      let action = "/workouts/"+user._id
-      const response = await fetch(action)
-      const data = await response.json() 
-      return data
-    }
-    catch(err)
-    {
-      console.log(err)
-    }   
-  }
+ 
 
   useEffect(() => {
+    async function getWorkouts(){      
+      try{
+        let action = "/workouts/"+user._id
+        const response = await fetch(action)
+        const data = await response.json() 
+        return data
+      }
+      catch(err)
+      {
+        console.log(err)
+      }   
+    }
+    
     getWorkouts().then(arr => {
       let arrBody = arr.workouts
       setWorkouts(arrBody)

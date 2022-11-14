@@ -10,21 +10,21 @@ const WorkoutForm = ({index}) => {
   let options;
 
   {workouts.length == 0 ? options = [{value:"", label:"No workouts found"}]: options = workouts.map(workout => {return {value:`${workout.name}`, label:`${workout.name}`}})}
-  
-  async function getWorkouts(){      
-    try{
-      const response = await fetch('/workouts')
-      const data = await response.json() 
-      return data
-    }
-    catch(err)
-    {
-      console.log(err)
-    }   
-  }
-
 
   useEffect(() => {
+
+    async function getWorkouts(){      
+      try{
+        const response = await fetch('/workouts')
+        const data = await response.json() 
+        return data
+      }
+      catch(err)
+      {
+        console.log(err)
+      }   
+    }
+
     getWorkouts().then(arr => {
       let arrBody = arr.workouts
       setWorkouts(arrBody)

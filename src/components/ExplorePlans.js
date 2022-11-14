@@ -20,19 +20,20 @@ const ExplorePlans = ({user}) => {
     })
   }
 
-  async function getPlans(){      
-    try{
-      const response = await fetch('/plans/')
-      const data = await response.json() 
-      return data
-    }
-    catch(err)
-    {
-      console.log(err)
-    }   
-  }
-
   useEffect(() => {
+
+    async function getPlans(){      
+      try{
+        const response = await fetch('/plans/')
+        const data = await response.json() 
+        return data
+      }
+      catch(err)
+      {
+        console.log(err)
+      }   
+    }
+
     getPlans().then(arr => {
       let arrBody = arr.plans
       setPlans(arrBody)

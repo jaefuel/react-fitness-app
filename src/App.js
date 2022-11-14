@@ -15,27 +15,34 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { useState, useEffect } from 'react'
 
 
-
-
 function App() {
-  const [user, setUser] = useState({})
-
-  async function getUser(){      
-    try{
-      const response = await fetch('/user', {credentials: 'include'})
-      const data = await response.json()
-      return data
-    }
-    catch(err)
-    {
-      console.log(err)
-    }   
-  }
+  const [user, setUser] = useState({})  
 
   useEffect(() => {
-    getUser().then(data => {
-      setUser({_id:data._id,userName:data.userName,email:data.email}) 
-    })},[]); 
+    let isCancelled = false;
+
+    async function getUser(){      
+      try{        
+        if (!isCancelled)
+        {
+          const response = await fetch('/user', {credentials: 'include'})       
+          const data = await response.json()       
+          setUser({_id:data._id,userName:data.userName,email:data.email}) 
+        }      
+      }
+      catch(err)
+      {
+        console.log(err)
+      }   
+    }  
+    
+    getUser()
+ 
+    return () => {
+      isCancelled = true;      
+    }
+  
+  },[]); 
 
   return (
     <div class = "wrapper">

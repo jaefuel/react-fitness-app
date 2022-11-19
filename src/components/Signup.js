@@ -11,24 +11,24 @@ const Signup = ({locals}) => {
   const [selectedOption4, setSelectedOption4] = useState(null)
 
   return (
-    <main class="container">
+    <main className="container">
     <Header />
 
-    <div class="row justify-content-center flexIndex">
-        <section class="col-6 mt-5">
+    <div className="row justify-content-center flexIndex">
+        <section className="col-6 mt-5">
           {/*if (locals.messages.errors) {
                 messages.errors.forEach( el => {
-                    <div class="alert alert-danger">{el.msg}</div>
+                    <div className="alert alert-danger">{el.msg}</div>
                 })    
             }
             if (locals.messages.info) {
                 messages.info.forEach( el => {
-                    <div class="alert alert-info">{el.msg}</div>
+                    <div className="alert alert-info">{el.msg}</div>
                 })   
             }*/}
             
             <form action="/signup" method="POST">
-                <div class="mb-3 df">
+                <div className="mb-3 df">
                   <AutosizeInput
 	                name="userName"
 	                value={selectedOption1}
@@ -40,7 +40,7 @@ const Signup = ({locals}) => {
 	                onChange={e => setSelectedOption1(e.target.value)}
                   />      
                   </div>
-                <div class="mb-3 df">
+                <div className="mb-3 df">
                   <AutosizeInput
 	                name="email"
                   type={"email"}
@@ -53,7 +53,7 @@ const Signup = ({locals}) => {
 	                onChange={e => setSelectedOption2(e.target.value)}
                   />    
                 </div>
-                <div class="mb-3 df">
+                <div className="mb-3 df">
                   <AutosizeInput
 	                name="password"
                   type={"password"}
@@ -66,7 +66,7 @@ const Signup = ({locals}) => {
 	                onChange={e => setSelectedOption3(e.target.value)}
                   />    
                 </div>
-                <div class="mb-3 df">
+                <div className="mb-3 df">
                   <AutosizeInput
 	                name="confirmPassword"
                   type={"password"}
@@ -79,11 +79,11 @@ const Signup = ({locals}) => {
 	                onChange={e => setSelectedOption4(e.target.value)}
                   />    
                   </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Submit</button>
               </form>
 
-              <div class="row justify-content-center mt-5">
-                <a class="btn btn-primary" href="/">Back</a>
+              <div className="row justify-content-center mt-5">
+                <a className="btn btn-primary" href="/">Back</a>
               </div>  
 
         </section>

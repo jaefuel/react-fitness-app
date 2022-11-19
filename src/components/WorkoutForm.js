@@ -31,10 +31,10 @@ const WorkoutForm = ({index}) => {
     })},[]); 
 
   return (<>          
-            <div class="mb-3">
+            <div className="mb-3">
               <p>Day {index + 1} </p>                      
 
-              <div class="select">
+              <div className="select">
                 <Select                   
                 isSearchable={false}
                 isMulti={false}

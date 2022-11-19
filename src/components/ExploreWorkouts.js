@@ -42,22 +42,22 @@ const ExploreWorkouts = ({user}) => {
 
   return (
     
-    <div class="container">
+    <div className="container">
     <Header />
       
-      <div class="row mt-5">
-        <div class="col-6">
+      <div className="row mt-5">
+        <div className="col-6">
 
-          <div class="row justify-content-center mt-5">
-            <ul class = "workouts">
+          <div className="row justify-content-center mt-5">
+            <ul className = "workouts">
 
            {body}
                                                 
             </ul>
           </div>  
 
-          <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/home">Return Home</a>
+          <div className="row justify-content-center mt-5">
+            <a className="btn btn-primary" href="/home">Return Home</a>
           </div>                   
 
         </div>

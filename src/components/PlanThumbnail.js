@@ -4,15 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClone, faThumbsUp} from '@fortawesome/free-solid-svg-icons'
 
 const PlanThumbnail = ({plan, user}) => {
-  let saveAction = "/plans/publish/"+plan._id
+  let saveAction = "/plans/publish/"+plan.id
   const element = <FontAwesomeIcon icon={faClone} />
 
-  let likeAction = ["/plans/likePlan/",plan._id, "?_method=PUT"].join("")
+  let likeAction = ["/plans/likePlan/",plan.id, "?_method=PUT"].join("")
   const element2 = <FontAwesomeIcon icon={faThumbsUp} />
 
   let form;
   
-  if ((user && (plan.user == user._id)) || !user)
+  if ((user && (plan.user == user.id)) || !user)
   {
     form= 
     <div></div> 
@@ -21,7 +21,7 @@ const PlanThumbnail = ({plan, user}) => {
   {
     form= 
     <form
-    class="col-1 save"
+    className="col-1 save"
     action={saveAction}
     method="POST">
     <button style={{border:"none", background:"none", color:"white", fontSize:"22px"}} type="submit">{element} Save Plan</button>
@@ -30,13 +30,13 @@ const PlanThumbnail = ({plan, user}) => {
 
   return ( 
   <li style={{listStyle: 'none'}} key={plan._id}>
-    <div class="plan">   
+    <div className="plan">   
         <div style={{marginTop:"8px",marginBottom:"8px",fontSize:"22px"}}><b>{plan.name}</b></div>
         <div><b>{plan.description}</b></div>
         <br></br>
-        <ul class = "planT">
+        <ul className = "planT">
           {plan.workouts.map((workout,index) => {
-            return <li style={{listStyle: 'none'}}>
+            return <li style={{listStyle: 'none'}} key={workout.id}>
               <div style={{marginTop:"8px",marginBottom:"8px",fontSize:"18px"}}>Day <b>{index + 1}</b></div>
               <WorkoutThumbnail workout={workout}/>                 
             </li>
@@ -44,11 +44,11 @@ const PlanThumbnail = ({plan, user}) => {
         </ul> 
         <br></br>
 
-        <div class="flexPlan">
-          <div class="flexLikes">
+        <div className="flexPlan">
+          <div className="flexLikes">
           <div>Likes: <b>{plan.likes.length - 1}</b> </div>   
           <form
-          class="col-1"
+          className="col-1"
           action={likeAction}
           method="POST">
           <button style={{border:"none", background:"none", color:"white", fontSize:"22px",marginRight:"8px"}} type="submit">{element2}</button>

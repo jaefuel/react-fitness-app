@@ -18,7 +18,7 @@ const MyPlans = ({user}) => {
   else
   {
     body=      
-    <div class="row mt-5">
+    <div className="row mt-5">
 
       <TabList>
         {plans.map((plan) => {           
@@ -26,8 +26,8 @@ const MyPlans = ({user}) => {
         })}      
       </TabList>    
 
-      <div class="col-6">
-        <div class="myplans">
+      <div className="col-6">
+        <div className="myplans">
           <ul>
             {plans.map((plan) => {           
             return <TabPanel><PlanThumbnail plan={plan} user={user}/></TabPanel>
@@ -41,7 +41,7 @@ const MyPlans = ({user}) => {
   useEffect(() => {
     async function getPlans(){      
       try{
-        const response = await fetch('/plans/'+user._id)
+        const response = await fetch('/plans/'+user.id)
         const data = await response.json() 
         return data
       }
@@ -63,21 +63,21 @@ const MyPlans = ({user}) => {
         {body} 
       </Tabs> 
       
-      <div class="flexMenu">
-          <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/explore/plans">Explore Plans</a>
+      <div className="flexMenu">
+          <div className="row justify-content-center mt-5">
+            <a className="btn btn-primary" href="/explore/plans">Explore Plans</a>
           </div>  
 
-          <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/create/plan">Create Plan</a>
+          <div className="row justify-content-center mt-5">            
+          <a className="btn btn-primary" href="/create/plan">Create Plan</a>
           </div>   
 
-          <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/explore/workouts">Explore Workouts</a>
+          <div className="row justify-content-center mt-5">            
+          <a className="btn btn-primary" href="/explore/workouts">Explore Workouts</a>
           </div>
 
-          <div class="row justify-content-center mt-5">            
-          <a class="btn btn-primary" href="/create/workout">Create Workout</a>
+          <div className="row justify-content-center mt-5">            
+          <a className="btn btn-primary" href="/create/workout">Create Workout</a>
           </div>            
       </div>                 
     </div>

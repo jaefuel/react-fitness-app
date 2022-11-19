@@ -5,7 +5,7 @@ import Plans from './MyPlans'
 
 const Home = ({user}) => {
   return (
-    <div class="container home">
+    <div className="container home">
       <Header />  
       <Plans user={user}/>
       <Footer user={user}/>    

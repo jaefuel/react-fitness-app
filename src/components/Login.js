@@ -8,25 +8,25 @@ const Login = () => {
 
   if (locals.messages.errors) 
   {
-    messages = () => {return messages.errors.forEach( el => {<div class="alert alert-danger">{el.msg}</div>})}
+    messages = () => {return messages.errors.forEach( el => {<div className="alert alert-danger">{el.msg}</div>})}
   }
   if (locals.messages.info) 
   {
-    messages = () => {return messages.info.forEach( el => {<div class="alert alert-info">{el.msg}</div>})}
+    messages = () => {return messages.info.forEach( el => {<div className="alert alert-info">{el.msg}</div>})}
   }*/} 
 
   const [selectedOption1, setSelectedOption1] = useState(null)
   const [selectedOption2, setSelectedOption2] = useState(null)
 
   return (
-    <main class="container">
+    <main className="container">
       <Header />
 
-      <div class="row justify-content-center flexIndex">
-        <section class="col-6 mt-5">        
+      <div className="row justify-content-center flexIndex">
+        <section className="col-6 mt-5">        
 
           <form action="/login" method="POST">
-            <div class="mb-3 df">
+            <div className="mb-3 df">
               <AutosizeInput
 	            name="email"
               type={"email"}
@@ -40,7 +40,7 @@ const Login = () => {
               />  
             </div>
 
-            <div class="mb-3 df">
+            <div className="mb-3 df">
               <AutosizeInput
 	            name="password"
               type={"password"}
@@ -54,11 +54,11 @@ const Login = () => {
               />         
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
           </form>
 
-            <div class="row justify-content-center mt-5">
-              <a class="btn btn-primary" href="/">Back</a>
+            <div className="row justify-content-center mt-5">
+              <a className="btn btn-primary" href="/">Back</a>
             </div>  
         </section>
       </div>

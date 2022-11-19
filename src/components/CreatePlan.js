@@ -20,17 +20,17 @@ const CreatePlan = () => {
   }
 
   return (
-    <div class="container">
+    <div className="container">
       <Header />
 
-      <div class="row mt-5">
-        <div class="col-6">
+      <div className="row mt-5">
+        <div className="col-6">
 
-          <div class="mt-5">        
+          <div className="mt-5">        
             <h2>Create a Plan</h2>
 
             <form action="/plans/publish" method="POST">
-              <div class="mb-3 df">
+              <div className="mb-3 df">
               <AutosizeInput
 	            name="name"
 	            value={selectedOption1}
@@ -43,7 +43,7 @@ const CreatePlan = () => {
               />
               </div>  
 
-              <div class="mb-3 df">
+              <div className="mb-3 df">
               <AutosizeInput
 	            name="plandescription"
 	            value={selectedOption2}
@@ -58,18 +58,18 @@ const CreatePlan = () => {
               
               <a style={{border:"none", background:"none", color:"white", fontSize: "20px"}} type="button" onClick={addWorkout}>{element}</a>
 
-              <h2 class="add fa-solid fa-square-plus"></h2>
+              <h2 className="add fa-solid fa-square-plus"></h2>
 
               {workouts.map((workout, i) => {
                 return <WorkoutForm key={workout} index={i}/>              
               })}
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-primary">Submit</button>
             </form>
           </div>
 
-          <div class="row justify-content-center mt-5">
-            <a class="btn btn-primary" href="/home">Return Home</a>
+          <div className="row justify-content-center mt-5">
+            <a className="btn btn-primary" href="/home">Return Home</a>
           </div>  
       
         </div>

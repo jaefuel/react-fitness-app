@@ -42,10 +42,10 @@ const ExplorePlans = ({user}) => {
   return (
     <>
       <Header />
-      <div class="container home">
-        <div class="row mt-5">
-          <div class="col-6">
-            <div class="row justify-content-center mt-5 myplans">
+      <div className="container home">
+        <div className="row mt-5">
+          <div className="col-6">
+            <div className="row justify-content-center mt-5 myplans">
               <ul>
                 {body}                                              
               </ul>
@@ -53,8 +53,8 @@ const ExplorePlans = ({user}) => {
           </div>
         </div> 
 
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/home">Return Home</a>
+        <div className="row justify-content-center mt-5">
+          <a className="btn btn-primary" href="/home">Return Home</a>
         </div>  
       </div>
     </>

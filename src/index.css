@@ -61,12 +61,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0px auto;
+  margin: auto;
   min-height: 450px;
   border: 1px solid steelblue;
   padding: 50px 80px;
   border-radius: 5px;
   background-color: #0c0c0ca4;
+
 }
 
 

@@ -14,19 +14,19 @@ const Footer = ({user}) => {
   }
   else
   {
-    userInfo = <div class="f3" style={{ marginTop: "16px"}}>
-    <p class="f2" style={{border:"none", background:"none", color:"white", fontSize: "26px"}}>{element}</p>
+    userInfo = <div className="f3" style={{ marginTop: "16px"}}>
+    <p className="f2" style={{border:"none", background:"none", color:"white", fontSize: "26px"}}>{element}</p>
     <p><strong>User Name</strong>: {user.userName}</p>
     <p><strong>Email</strong>: {user.email}</p>
 
     <form action="/logout" method="POST">
-      <button style={{ marginTop: "26px"}} type="submit" class="col-3 btn btn-primary">Logout</button>
+      <button style={{ marginTop: "26px"}} type="submit" className="col-3 btn btn-primary">Logout</button>
     </form>
     </div>  
   }
 
   return (
-    <header class="flexFooter">
+    <header className="flexFooter">
       
       {userInfo}      
 

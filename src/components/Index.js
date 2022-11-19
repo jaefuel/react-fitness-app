@@ -3,13 +3,13 @@ import Header from './Header'
 
 const Index = () => {
   return (
-    <main class="container"> 
+    <main className="container"> 
 
       <Header />
 
-      <div class="row justify-content-around mt-5 flexIndex">     
-        <a style={{margin: "10px"}} href="/login" class="col-3 btn btn-primary"> Login</a>
-        <a style={{margin: "10px"}} href="/signup" class="col-3 btn btn-primary"> Signup</a>
+      <div className="row justify-content-around mt-5 flexIndex">     
+        <a style={{margin: "10px"}} href="/login" className="col-3 btn btn-primary">Login</a>
+        <a style={{margin: "10px"}} href="/signup" className="col-3 btn btn-primary">Signup</a>
       </div>
     </main>
   )

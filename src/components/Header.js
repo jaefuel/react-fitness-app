@@ -3,8 +3,8 @@ import React from 'react'
 const Header = () => {
 
   return (
-    <header class="flexHeader">
-      <div class="text-center f1">
+    <header className="flexHeader">
+      <div className="text-center f1">
         <h1><a href="/home">Cris' Fitness APP</a></h1>
         <h2>The #1 Fitness Motivation App</h2>
       </div>

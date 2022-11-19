@@ -28,8 +28,7 @@ connectDB();
 app.set("view engine", "ejs");
 
 //Static Folder
-app.use(express.static("build"));
-
+app.use(express.static("build"))
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

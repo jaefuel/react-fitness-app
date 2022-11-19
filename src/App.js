@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 import Index from './components/Index.js'
 import Signup from './components/Signup.js'
 import Login from './components/Login.js'
@@ -14,38 +13,33 @@ import CreatePlan from './components/CreatePlan'
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import { useState, useEffect } from 'react'
 
-
 function App() {
   const [user, setUser] = useState({})  
 
   useEffect(() => {
-    let isCancelled = false;
 
     async function getUser(){      
-      try{        
-        if (!isCancelled)
-        {
-          const response = await fetch('/user', {credentials: 'include'})       
-          const data = await response.json()       
-          setUser({_id:data._id,userName:data.userName,email:data.email}) 
-        }      
+      try
+      {
+
+        const response = await fetch('/user', {credentials: 'include'})       
+        const data = await response.json()       
+        setUser({id:data._id,userName:data.userName,email:data.email})   
+        
+        console.log("User set")
       }
       catch(err)
       {
         console.log(err)
       }   
-    }  
+    }
     
     getUser()
- 
-    return () => {
-      isCancelled = true;      
-    }
   
   },[]); 
 
   return (
-    <div class = "wrapper">
+    <div className="wrapper">
     <Router>
     <>     
       <Routes>
@@ -62,8 +56,7 @@ function App() {
       </Routes> 
     </> 
   </Router> 
-  </div>
-    
+  </div>   
   )
 }
 

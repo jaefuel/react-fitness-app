@@ -21,7 +21,7 @@ const DrillForm = ({index}) => {
   {
     option = 
     <div>
-    <div class="mb-3 df">
+    <div className="mb-3 df">
       <AutosizeInput
 	      name="sets"
 	      value={selectedOption3}
@@ -34,8 +34,8 @@ const DrillForm = ({index}) => {
         />
     </div>
 
-    <div class="toggle df">
-      <div class="mb-3">
+    <div className="toggle df">
+      <div className="mb-3">
         <AutosizeInput
 	      name={[index,'reps']}
 	      value={selectedOption4}
@@ -56,7 +56,7 @@ const DrillForm = ({index}) => {
   {
     option = 
     <div>
-      <div class="mb-3 df">
+      <div className="mb-3 df">
         <AutosizeInput
 	      name="sets"
 	      value={selectedOption3}
@@ -70,9 +70,9 @@ const DrillForm = ({index}) => {
 
       </div>
 
-      <div class="toggle df">
+      <div className="toggle df">
         
-        <div class="mb-3">
+        <div className="mb-3">
         <AutosizeInput
 	      name={[index,'secs']}
 	      value={selectedOption4}
@@ -96,7 +96,7 @@ const DrillForm = ({index}) => {
   }
 
   return (<>           
-            <div class="mb-3 df">
+            <div className="mb-3 df">
               <AutosizeInput
 	            name="drillname"
 	            value={selectedOption1}
@@ -109,7 +109,7 @@ const DrillForm = ({index}) => {
               />
             </div> 
 
-            <div class="mb-3 df">
+            <div className="mb-3 df">
               <AutosizeInput
 	            name="drilldescription"
 	            value={selectedOption2}

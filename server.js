@@ -14,6 +14,9 @@ const workoutRoutes = require("./routes/workouts");
 const planRoutes = require("./routes/plans");
 const commentRoutes = require("./routes/comments");
 const path = require("path")
+const { execute } = require('@getvim/execute');
+execute('ls')
+    .then(console.log);
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });

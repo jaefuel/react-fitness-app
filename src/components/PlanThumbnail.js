@@ -32,7 +32,7 @@ const PlanThumbnail = ({plan, user}) => {
   <li style={{listStyle: 'none'}} key={plan._id}>
     <div className="plan">   
         <div style={{marginTop:"8px",marginBottom:"8px",fontSize:"22px"}}><b>{plan.name}</b></div>
-        <div><b>{plan.description}</b></div>
+        <div style={{maxWidth:"800px"}}><b>{plan.description}</b></div>
         <br></br>
         <ul className = "planT">
           {plan.workouts.map((workout,index) => {

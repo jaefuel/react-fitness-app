@@ -1,4 +1,5 @@
 import './App.css'
+import './index.css'
 import Index from './components/Index.js'
 import Signup from './components/Signup.js'
 import Login from './components/Login.js'

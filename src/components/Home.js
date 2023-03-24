@@ -1,13 +1,13 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
-import Plans from './MyPlans'
+import MyPlans from './MyPlans'
 
 const Home = ({user}) => {
   return (
     <div className="container home">
       <Header />  
-      <Plans user={user}/>
+      <MyPlans user={user}/>
       <Footer user={user}/>    
     </div>
   )

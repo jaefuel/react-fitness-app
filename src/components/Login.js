@@ -61,6 +61,9 @@ const Login = () => {
               <a className="btn btn-primary" href="/">Back</a>
             </div>  
         </section>
+
+        {/*<a href="/auth/google">Login with Google</a>*/}
+        
       </div>
     </main>
   )

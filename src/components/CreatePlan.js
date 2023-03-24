@@ -28,6 +28,7 @@ const CreatePlan = () => {
 
           <div className="mt-5">        
             <h2>Create a Plan</h2>
+            <p>In order to create a plan, you'll need to select a workout for each day. In order to create a workout, go to <a className="btn btn-primary" href="/create/workout">Create Workout</a></p>
 
             <form action="/plans/publish" method="POST">
               <div className="mb-3 df">
@@ -61,12 +62,18 @@ const CreatePlan = () => {
               <h2 className="add fa-solid fa-square-plus"></h2>
 
               {workouts.map((workout, i) => {
-                return <WorkoutForm key={workout} index={i}/>              
+                return <WorkoutForm key={workout} index={i}/>
+                              
               })}
+
+              
 
               <button type="submit" className="btn btn-primary">Submit</button>
             </form>
           </div>
+          <br></br>
+
+          <h2>Your Workouts</h2>
 
           <div className="row justify-content-center mt-5">
             <a className="btn btn-primary" href="/home">Return Home</a>

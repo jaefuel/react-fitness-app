@@ -4,7 +4,9 @@ const upload = require("../middleware/multer");
 const plansController = require("../controllers/plans");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
+router.get("/", plansController.getPlans);
+
+router.get("/discover", plansController.discoverPlans);
 
 router.post("/publish", plansController.publishPlan);
 

@@ -10,7 +10,7 @@ const MyPlans = ({user}) => {
 
   let body;
 
-  if (plans.length == 0)
+  if (plans.length == 0 || !user)
   {
     body=
     <div style={{height:"0px",margin:"0px",padding:"0px"}}></div>
@@ -41,7 +41,7 @@ const MyPlans = ({user}) => {
   useEffect(() => {
     async function getPlans(){      
       try{
-        const response = await fetch('/plans/'+user.id)
+        const response = await fetch('/plans/')
         const data = await response.json() 
         return data
       }
@@ -65,20 +65,13 @@ const MyPlans = ({user}) => {
       
       <div className="flexMenu">
           <div className="row justify-content-center mt-5">
-            <a className="btn btn-primary" href="/explore/plans">Explore Plans</a>
+            <a className="btn btn-primary" href="/discover">Discover Plans</a>
           </div>  
 
           <div className="row justify-content-center mt-5">            
           <a className="btn btn-primary" href="/create/plan">Create Plan</a>
           </div>   
-
-          <div className="row justify-content-center mt-5">            
-          <a className="btn btn-primary" href="/explore/workouts">Explore Workouts</a>
-          </div>
-
-          <div className="row justify-content-center mt-5">            
-          <a className="btn btn-primary" href="/create/workout">Create Workout</a>
-          </div>            
+                    
       </div>                 
     </div>
   )

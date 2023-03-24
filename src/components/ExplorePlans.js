@@ -24,7 +24,7 @@ const ExplorePlans = ({user}) => {
 
     async function getPlans(){      
       try{
-        const response = await fetch('/plans/')
+        const response = await fetch('/plans/discover/')
         const data = await response.json() 
         return data
       }
@@ -47,7 +47,7 @@ const ExplorePlans = ({user}) => {
           <div className="col-6">
             <div className="row justify-content-center mt-5 myplans">
               <ul>
-                {body}                                              
+                {/*body*/}                                              
               </ul>
             </div>           
           </div>

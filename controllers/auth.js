@@ -38,6 +38,16 @@ exports.postLogin = (req, res, next) => {
   })(req, res, next);
 };
 
+exports.postLoginGoogle = (req, res, next) => {
+  passport.authenticate('google', { scope:
+    ['profile' ] }
+)};
+
+exports.postLoginGoogleCallback = (req, res, next) => {passport.authenticate( 'google', { failureRedirect: '/login' }),
+(req, res) => {
+  res.redirect('/home')
+}};
+
 exports.postLogout = (req, res) => {
   
   req.logout(() => {

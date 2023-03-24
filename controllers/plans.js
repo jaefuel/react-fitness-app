@@ -1,17 +1,18 @@
 const Plan = require("../models/Plan");
 const Workout = require("../models/Workout");
 const Comment = require("../models/Comment");
+const { faPlaneCircleCheck } = require("@fortawesome/free-solid-svg-icons");
 
 module.exports = {
   getPlans: async (req, res) => {
     try {
-      const plans = await Plan.find({user: req.params.id});
+      const plans = await Plan.find({user: req.user.id});
       res.send({plans: plans});
     } catch (err) {
       console.log(err);
     }
   },
-  explorePlans: async (req, res) => {
+  discoverPlans: async (req, res) => {
     try {
       const plans = await Plan.find({});
       res.send({plans: plans});
@@ -39,29 +40,64 @@ module.exports = {
     }
   },
   publishPlan: async (req, res) => {
-
-    async function findWorkout(workoutname)
+    async function findWorkout(workoutName)
     {
       
-      const workout = await Workout.find({name: workoutname});
-      const data = await workout
-      return data[0]
+      const workout = await Workout.find({name: workoutName, user: req.user.id});
+      return workout[0]
     }
 
+    async function findPlan(planName)
+    { 
+      const plan = await Plan.find({name: planName, user: req.user.id});
+      console.log("PLAN")
+      console.log(plan)
+      return plan
+    }
+    
+
     try {        
-  
-      let arr = []
+
+      let plan = await findPlan(req.body.name);
+
+
+      let arr = [];
       let diff = 0;
 
-      if (typeof req.body.workouts == "object")
-      {     
-      await req.body.workouts.forEach(async (e) => {
-        if (e != "")
-        {
-          arr.push(await findWorkout(e))
-
-          if (arr.length == req.body.workouts.length-diff)
+      if (typeof plan[0] != "object")
+      {
+        if (typeof req.body.workouts == "object")
+        {     
+        await req.body.workouts.forEach(async (e) => {
+          if (e != "")
           {
+            arr.push(await findWorkout(e))
+  
+            if (arr.length == req.body.workouts.length-diff)
+            {
+            Plan.create({
+              name: req.body.name,
+              description: req.body.plandescription,
+              likes: 0,
+              user: req.user.id,
+              workouts: arr
+            }); 
+            console.log("Plan has been added!");
+            }
+          }
+          else
+          {
+            diff++;
+          }
+          
+        })
+        }
+        else
+        {
+          if (req.body.workouts != "")
+          {
+          arr.push(await findWorkout(req.body.workouts))
+  
           Plan.create({
             name: req.body.name,
             description: req.body.plandescription,
@@ -69,34 +105,19 @@ module.exports = {
             user: req.user.id,
             workouts: arr
           }); 
+          console.log("Plan has been added!");
           }
-        }
-        else
-        {
-          diff++;
-        }
-        
-      })
+   
+        }  
       }
       else
       {
-        if (req.body.workouts != "")
-        {
-        arr.push(await findWorkout(req.body.workouts))
-
-        Plan.create({
-          name: req.body.name,
-          description: req.body.plandescription,
-          likes: 0,
-          user: req.user.id,
-          workouts: arr
-        }); 
-        }
- 
+        console.log("Plan already exists!");
       }
+      
 
 
-      console.log("Plan has been added!");
+      
       res.redirect("/home");
     } catch (err) {
       console.log(err);

@@ -1,31 +1,16 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Header from './Header'
 import WorkoutThumbnail from './WorkoutThumbnail'
 
-const MyWorkouts = ({user}) => {
+const MyWorkouts = () => {
 
   const [workouts, setWorkouts] = useState([])
 
-  let body;
-
-  if (Object.keys(user).length == 0)
-  {
-    body = ""
-  }
-  else
-  {
-    body =  workouts.map(workout => {
-      return <WorkoutThumbnail workout={workout}/>                     
-    })
-  }
-
- 
 
   useEffect(() => {
     async function getWorkouts(){      
       try{
-        let action = "/workouts/"+user.id
+        let action = "/workouts/"
         const response = await fetch(action)
         const data = await response.json() 
         return data
@@ -40,31 +25,19 @@ const MyWorkouts = ({user}) => {
       let arrBody = arr.workouts
       setWorkouts(arrBody)
   }) 
-  }, [user]); 
+  }, []); 
 
   return (
     
-    <div className="container">
-    <Header />
-      
-      <div className="row mt-5">
-        <div className="col-6">
+          <div>
+            <ul className = "workouts flexPlan container">
 
-          <div className="row justify-content-center mt-5">
-            <ul className = "workouts">
-
-           {body}
+              {workouts.map(workout => {
+                return <WorkoutThumbnail workout={workout}/>                     
+              })}
                                                 
             </ul>
-          </div>  
-
-          <div className="row justify-content-center mt-5">
-            <a className="btn btn-primary" href="/create/workout">Back</a>
           </div>                   
-
-        </div>
-      </div>
-    </div>
   )
 }
 

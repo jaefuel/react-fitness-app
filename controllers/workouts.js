@@ -2,19 +2,23 @@ const Workout = require("../models/Workout");
 const Comment = require("../models/Comment");
 
 module.exports = {
+  
   getWorkouts: async (req, res) => {
     try {
-      const workouts = await Workout.find({user: req.params.id});
+      const workouts = await Workout.find({user: req.user.id});
       res.send({workouts: workouts});
 
     } catch (err) {
       console.log(err);
     }
   },
-  exploreWorkouts: async (req, res) => {
+  getWorkout: async (req, res) => {
     try {
-      const workouts = await Workout.find({});
-      res.send({workouts: workouts});
+      console.log(req.params.name)
+      const workout = await Workout.find({name: req.params.name, user: req.user.id});
+      console.log("request: "+ req.body)
+      console.log(workout)
+      res.send({workout: workout});
 
     } catch (err) {
       console.log(err);
@@ -41,8 +45,12 @@ module.exports = {
             drill = [req.body.drillname[i], req.body.drilldescription[i], req.body.sets[i], req.body[i +",secs"], "sec(s)"]
 
           }
+
+          console.log("Drill array: " + drill)
           arr.push(drill)
         }) 
+
+        console.log("Workout array: " + arr)
       }
       else
       {
@@ -69,7 +77,7 @@ module.exports = {
     
 
       console.log("Workout has been added!");
-      res.redirect("/home");
+      res.redirect(req.session.returnTo || "/home");
     } catch (err) {
       console.log(err);
     }
@@ -104,7 +112,7 @@ module.exports = {
         console.log("You already liked this workout");
       }
 
-      res.redirect("/workouts");
+      res.redirect(req.session.returnTo || "/workouts");
       
     } catch (err) {
       console.log(err);
@@ -117,9 +125,9 @@ module.exports = {
       // Delete post from db
       await Workout.remove({ _id: req.params.id });
       console.log("Deleted Workout");
-      res.redirect("/home");
+      res.redirect(req.session.returnTo || "/home");
     } catch (err) {
-      res.redirect("/home");
+      res.redirect(req.session.returnTo || "/home");
     }
   }
 };

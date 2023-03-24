@@ -4,15 +4,16 @@ const upload = require("../middleware/multer");
 const workoutsController = require("../controllers/workouts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
+router.get("/", workoutsController.getWorkouts);
+
+router.get("/:name", workoutsController.getWorkout);
 
 router.post("/publish", workoutsController.publishWorkout);
-
-
-//router.post("/publish/:id", workoutsController.addWorkout);
 
 router.put("/likeWorkout/:id", workoutsController.likeWorkout);
 
 router.delete("/deleteWorkout/:id", workoutsController.deleteWorkout);
+
+//router.post("/publish/:id", workoutsController.addWorkout);
 
 module.exports = router;

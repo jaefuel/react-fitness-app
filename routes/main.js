@@ -9,13 +9,14 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 router.post("/login", authController.postLogin);
 router.post("/signup", authController.postSignup);
+
+router.get("/auth/google", authController.postLoginGoogle);
+router.get("/auth/google/callback", authController.postLoginGoogleCallback);
+
 router.post("/logout", authController.postLogout);
 
-router.get("/workouts/:id", workoutsController.getWorkouts);
-router.get("/workouts/", workoutsController.exploreWorkouts);
-router.get("/plans/:id", plansController.getPlans);
-router.get("/plans/", plansController.explorePlans);
-
 router.get("/user", authController.getUser);
+
+
 
 module.exports = router;

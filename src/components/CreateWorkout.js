@@ -14,7 +14,7 @@ const CreateWorkout = () => {
 
   function addDrill() {
     const randomID = Math.floor(Math.random() * 99999);
-    setDrills((current) => [...current, randomID]);
+    setDrills(current => [...current, randomID]);
 }
 
   return (

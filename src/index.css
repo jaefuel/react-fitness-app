@@ -166,7 +166,7 @@ footer {
 }
 
 h1,h3,p,label {
-  color: whitesmoke;
+  color: white;
 }
 
 
@@ -328,9 +328,14 @@ input[type=text]
 
 .workouts
 {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  -ms-overflow-style: none;
+  margin: 0;
+  max-height: 1040px;
+  min-height: 250px;
+  overflow-x: scroll;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  min-width: 100%;
 
 }
 
@@ -351,6 +356,7 @@ input[type=text]
   list-style: none;
   overflow-y:scroll;
   height: 360px;
+  width: 360px;
   
 
   -ms-overflow-style: none;
@@ -364,7 +370,6 @@ input[type=text]
 
 h2
 {
-  font-style: italic;
   color: white;
 }
 

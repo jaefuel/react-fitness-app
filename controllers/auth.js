@@ -1,6 +1,7 @@
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
+const Workout = require("../models/Workout");
 
 
 exports.postLogin = (req, res, next) => {
@@ -97,6 +98,8 @@ exports.postSignup = (req, res, next) => {
     password: req.body.password,
   });
 
+
+
   User.findOne(
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
     (err, existingUser) => {
@@ -114,6 +117,12 @@ exports.postSignup = (req, res, next) => {
         if (err) {
           return next(err);
         }
+
+        Workout.create({
+          name: "Rest Day",
+          user: user
+        });
+
         req.logIn(user, (err) => {
           if (err) {
             return next(err);

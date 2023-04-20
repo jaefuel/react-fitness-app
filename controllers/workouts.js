@@ -14,10 +14,7 @@ module.exports = {
   },
   getWorkout: async (req, res) => {
     try {
-      console.log(req.params.name)
       const workout = await Workout.find({name: req.params.name, user: req.user.id});
-      console.log("request: "+ req.body)
-      console.log(workout)
       res.send({workout: workout});
 
     } catch (err) {
@@ -68,7 +65,7 @@ module.exports = {
         arr.push(drill)
       }
 
-      await Workout.create({
+      Workout.create({
         name: req.body.name,
         likes: 0,
         user: req.user.id,
@@ -81,17 +78,8 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
-  },
-  offDay: async (req, res) => {
-    try {
-      Workout.create({
-        name: "Off Day",
-      });
-
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  }
+  ,
   likeWorkout: async (req, res) => {
     try {
       const workout = await Workout.findById(req.params.id)

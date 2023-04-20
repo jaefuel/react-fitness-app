@@ -306,12 +306,12 @@ input[type=text]
 
 .planT
 {
-  padding: 20px 0px;
+  padding: 0px 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
+  width: 1160px;
 }
 
 .save
@@ -323,20 +323,7 @@ input[type=text]
 
 .select
 {
-  max-width: 200px;
-}
-
-.workouts
-{
-  -ms-overflow-style: none;
-  margin: 0;
-  max-height: 1040px;
-  min-height: 250px;
-  overflow-x: scroll;
-  overscroll-behavior-x: contain;
-  scrollbar-width: none;
-  min-width: 100%;
-
+  width: 200px;
 }
 
 .workout::-webkit-scrollbar
@@ -347,7 +334,6 @@ input[type=text]
 
 .workout
 {
-  min-width: 300px;
   color:white;
   border: 2px solid #4682B4;
   margin: 0px auto;
@@ -361,6 +347,20 @@ input[type=text]
 
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.form
+{
+  display: flex;
+  justify-content: flex-start;
+  align-content: space-between;
+  
+}
+
+.formDropdowns
+{
+  display: flex;
+  flex-direction: column;
 }
 
 .f2, .f3
@@ -399,15 +399,40 @@ h2
   margin: 20px;
 }
 
-@media screen and (max-width: 767px)
+@media (min-width: 1024px) and (max-width: 1536px)
 {
+
   .planT
   {
-  display: flex;
+  width: 800px;
+  }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px)
+{
+
+  .planT
+  {
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  width: 440px;
+  }
+
+
+}
+
+@media screen and (max-width: 767px)
+{
+  .form
+  {
+    flex-direction: column;
+  }
+
+  .planT
+  {
+  flex-direction: column;
+  width: 440px;
   }
 
   .container

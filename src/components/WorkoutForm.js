@@ -3,65 +3,66 @@ import Select from 'react-select';
 import WorkoutThumbnail from './WorkoutThumbnail'
 import { useState, useEffect } from 'react'
 
-const WorkoutForm = ({index}) => {
+const WorkoutForm = ({index, setThumbnails}) => {
 
   const [workouts, setWorkouts] = useState([])
-  const [workout, setWorkout] = useState(null)
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState({value:"Rest Day", label:"Rest Day"});
 
-  let options;
-  let thumbnail;
+  let options = workouts.map(workout => {return {value:`${workout.name}`, label:`${workout.name}`}});
 
-  {workouts.length == 0 ? options = [{value:"", label:"No workouts found"}]: options = workouts.map(workout => {return {value:`${workout.name}`, label:`${workout.name}`}})}
-  {workout == null ? thumbnail = "" : thumbnail = <WorkoutThumbnail workout={workout}/>}
+  async function getWorkouts(){      
+    try{
+      const response = await fetch('/workouts')
+      const data = await response.json() 
+      return data.workouts
+    }
+    catch(err)
+    {
+      console.log(err)
+    }   
+  }
+
+  async function getWorkout(workout){      
+    try{
+      let action = "/workouts/"+workout;
+      const response = await fetch(action)
+      const data = await response.json() 
+
+      return data.workout[0]
+    }
+    catch(err)
+    {
+      console.log(err)
+    }   
+  }
+
+  function changeSelection(event)
+  {
+    setSelectedOption(event)
+
+    getWorkout(event.value).then(newWorkout => {        
+      setThumbnails((current) => 
+      {
+        let temp = [...current];
+        temp[index] = <WorkoutThumbnail workout={newWorkout}/>
+        return temp
+      })
+    })
+  }
 
   useEffect(() => {
-
-    async function getWorkouts(){      
-      try{
-        const response = await fetch('/workouts')
-        const data = await response.json() 
-        console.log(data)
-        return data.workouts
-      }
-      catch(err)
+    getWorkouts().then(workouts => { 
+      setWorkouts(workouts);
+      getWorkout("Rest Day").then(defaultWorkout =>
       {
-        console.log(err)
-      }   
-    }
-
-    async function getWorkout(){      
-      try{
-        let action = "/workouts/"+String(selectedOption.value);
-        const response = await fetch(action)
-        const data = await response.json() 
-        console.log(data)
-
-        return data.workout[0]
-      }
-      catch(err)
-      {
-        console.log(err)
-      }   
-    }
-     
-    
-    getWorkouts().then(workouts => {
-      console.log(selectedOption)
-      setWorkouts(workouts)
-      if (selectedOption != null)
-      {
-        getWorkout().then(workout => {
-          setWorkout(workout)})
-      }
-    })
-
-  },[selectedOption]); 
-
+        setThumbnails((current) => [...current, <WorkoutThumbnail workout={defaultWorkout}/>])  
+      })        
+    })    
+  },[]); 
 
 
   return (<>          
-            <div className="mb-3">
+            <div>
               <p>Day {index + 1} </p>                      
 
               <div className="select">
@@ -70,15 +71,12 @@ const WorkoutForm = ({index}) => {
                 isMulti={false}
                 name="workouts"  
                 value={selectedOption}        
-                onChange={setSelectedOption}
+                onChange={e => changeSelection(e)}
                 options={options}/>
               </div>
                                            
             </div>
             <br></br>
-
-            {thumbnail}
-
           </>    
   )
 }

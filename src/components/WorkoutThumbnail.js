@@ -4,7 +4,7 @@ const WorkoutThumbnail = ({workout}) => {
 
   let body;
 
-  if (workout.name.toLowerCase() != "off day")
+  if (workout.name.toLowerCase() != "rest day")
   {
     body = <li className="workout" key={workout.id}>
 
@@ -29,7 +29,7 @@ const WorkoutThumbnail = ({workout}) => {
   else
   {
     body = <li style={{display:"flex", flexDirection:"column", justifyContent:"center"}} className="workout" key={workout.id}>
-    <div style={{fontSize:"20px"}}><b>{workout.name}</b></div>
+    <div style={{fontSize:"20px"}}><b>Rest Day</b></div>
     <br></br>
     <br></br> 
     </li>

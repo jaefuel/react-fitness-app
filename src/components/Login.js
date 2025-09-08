@@ -62,9 +62,7 @@ const Login = () => {
             </div>  
         </section>
 
-        <button onClick={function google() {
-    window.open("/auth/google", "_self");
-  }}>Login with Google</button>
+  
         
       </div>
     </main>
